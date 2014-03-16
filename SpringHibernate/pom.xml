@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>org.hotswap.agent</groupId>
-    <artifactId>TestApplication</artifactId>
+    <artifactId>SpringHibernate</artifactId>
     <packaging>war</packaging>
 
     <properties>
