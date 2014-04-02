@@ -19,13 +19,6 @@
         trigger extra HTTP connections for every build, i.e. slow down the builds -->
     <repositories>
 
-        <mirror>
-            <id>jboss-public</id>
-            <name>JBoss Public Nexus Repository</name>
-            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
-            <mirrorOf>jboss</mirrorOf>
-        </mirror>
-
         <repository>
             <id>snapshots.jboss.org</id>
             <name>JBoss Snapshots Repository</name>
@@ -48,14 +41,7 @@
     </properties>
 
     <dependencies>
-        <!-- Dependency to HotswapAgent only to compile ExamplePlugin -->
-<!--         <dependency>
-            <groupId>org.hotswap.agent</groupId>
-            <artifactId>HotswapAgent</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
- -->        
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
@@ -178,7 +164,6 @@
         <target>1.7</target>
         <showDeprecation>true</showDeprecation>
         <showWarnings>true</showWarnings>
-        <executable>${env.JAVA_HOME_7}/bin/javac</executable>
         <fork>true</fork>
     </configuration>
 </plugin>            <!-- executes test with -javaagent option -->
