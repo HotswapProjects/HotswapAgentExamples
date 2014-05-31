@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.hotswap.agent</groupId>
+        <artifactId>hotswap-agent-parent</artifactId>
+        <version>0.1-beta4-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.hotswap.agent.examples</groupId>
+    <artifactId>plain-java</artifactId>
+    <version>0.1-beta4-SNAPSHOT</version>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <tasks>
+                                <property name="build.compiler" value="extJavac"/>
+
+                                <!-- compile src/main/java-extra into target/extra -->
+                                <mkdir dir="target/extra"/>
+                                <javac srcdir="src/main/java-extra" destdir="target/extra"/>
+
+                                <!-- compile src/main/java-extra into target/extra -->
+                                <mkdir dir="target/hotswap"/>
+                                <javac srcdir="src/main/java-hotswap" destdir="target/hotswap"/>
+
+
+                                <!-- copy src/main/resources-extra into target/extra -->
+                                <copy todir="target/extra">
+                                    <fileset dir="src/main/resources-extra"/>
+                                </copy>
+
+                                <!-- copy src/main/resources-watch into target/watch -->
+                                <mkdir dir="target/watch"/>
+                                <copy todir="target/watch">
+                                    <fileset dir="src/main/resources-watch"/>
+                                </copy>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hotswap.agent</groupId>
+            <artifactId>hotswap-agent-core</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>
