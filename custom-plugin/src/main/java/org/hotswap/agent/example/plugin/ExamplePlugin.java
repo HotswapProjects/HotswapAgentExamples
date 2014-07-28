@@ -30,10 +30,10 @@ import java.net.URI;
         testedVersions = "Describe dependent framework version you have tested the plugin with.",
         expectedVersions = "Describe dependent framework version you expect to work the plugin with.")
 public class ExamplePlugin {
-    public static final String PLUGIN_PACKAGE = "org/hotswap/agent/examples";
+    public static final String PLUGIN_PACKAGE = "org/hotswap/agent/agentexamples";
 
     // as an example, we will enhance this service to return content of examplePlugin.resource
-    // and class load/reload counts in it's helloWorld service method
+    // and class load/reload counts in agentexamples's helloWorld service method
     public static final String HELLO_WORLD_SERVICE = "org.hotswap.agent.example.service.HelloWorldService";
 
     // Agent logger is a very simple custom logging mechanism. Do not use any common logging framework
@@ -43,7 +43,7 @@ public class ExamplePlugin {
     /**
      * Any plugin has to have at least one static @Transform method to hook initialization code. It is usually
      * some key framework method. Call PluginManager.initializePlugin() to create new plugin instance and
-     * initialize it with the application classloader. Than call one or more methods on the plugin
+     * initialize agentexamples with the application classloader. Than call one or more methods on the plugin
      * to pass reference to framework/application objects.
      *
      * @param ctClass see @Transform javadoc for available parameter types. CtClass is convenient way
@@ -60,7 +60,7 @@ public class ExamplePlugin {
         // If you need to call a plugin method from application context, there are some issues
         // Always think about two different classloaders - application and agent/plugin. The parameter
         // here cannot be of type TestEntityService because the plugin does not know this type at runtime
-        // (although it will compile here!). If you call plugin method, usually only basic java types (java.lang.*)
+        // (although agentexamples will compile here!). If you call plugin method, usually only basic java types (java.lang.*)
         // are safe.
         src += PluginManagerInvoker.buildCallPluginMethod(ExamplePlugin.class, "registerService", "this", "java.lang.Object");
 
@@ -81,7 +81,7 @@ public class ExamplePlugin {
 
     /**
      * Called from HelloWorldService enhanced constructor. Note that the service cannot be typed to
-     * HelloWorldService class - the class is not known to agent classloader (it lives only in the
+     * HelloWorldService class - the class is not known to agent classloader (agentexamples lives only in the
      * application classloader).
      */
     public void registerService(Object helloWorldService) {
@@ -89,7 +89,7 @@ public class ExamplePlugin {
         LOGGER.info("Plugin {} initialized on service {}", getClass(), this.helloWorldService);
     }
 
-    // the service, please note that it cannot be typed here
+    // the service, please note that agentexamples cannot be typed here
     Object helloWorldService;
 
 
@@ -105,7 +105,7 @@ public class ExamplePlugin {
      */
     @Watch(path = "examplePlugin.resource")
     public void watchForResourceChange(URI uri) throws ClassNotFoundException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NotFoundException, CannotCompileException {
-        // simple example - read new value and set it via reflection
+        // simple example - read new value and set agentexamples via reflection
         String examplePluginResourceText = new String(IOUtils.toByteArray(uri));
 
         Method setExamplePluginResourceText = appClassLoader.loadClass(HELLO_WORLD_SERVICE)
@@ -119,7 +119,7 @@ public class ExamplePlugin {
     /**
      * Count how many classes were loaded after the plugin is initialized (after HELLO_WORLD_SERVICE constructor).
      */
-    @Transform(classNameRegexp = "org.hotswap.agent.examples.*", onReload = false)
+    @Transform(classNameRegexp = "org.hotswap.agentexamples.*", onReload = false)
     public void loadClass() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // you can use scheduler to run framework method asynchronously
         // there is convenient ReflectionCommand, which runs method in the target classloader, the reflection

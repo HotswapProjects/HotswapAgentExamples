@@ -16,7 +16,7 @@ This example depends only on hotswap-agent-core (runs with `-XXaltjvm=dcevm -jav
 
 ### extraClasspath
 
-1. Class `org.hotswap.agent.examples.plain.HelloWorld` is located in both src/main/java and src/main/java-extra, 
+1. Class `org.hotswap.agent.example.HelloWorld` is located in both src/main/java and src/main/java-extra, 
 on project assembly (`mvn package`) it becomes target/classes and target/extra. 
 1. The agent is configured to add extra classpath directory target/extra 
 (hotswap-agent.properties contains property `extraClasspath=target/extra`). 
@@ -43,7 +43,7 @@ If hotswap-agent.properties setup contains `autoHotswap=true`, all class files o
 extraClasspath) are watched for changes (note that only plain .class files on local filesystem and not in JAR can
 be watched). If the filesystem triggers a change, JVM hotswap is automatically launched for the file.
  
-HelloWorldHotswapTest loads the class `org.hotswap.agent.examples.plain.HelloWorldHotswap` bytecode, renames
+HelloWorldHotswapTest loads the class `org.hotswap.agent.example.HelloWorldHotswap` bytecode, renames
 it to HelloWorld and replaces HelloWorldHotswap.class file in target/classes. This triggers the change
 and new class version is introduced. HelloWorld.hello() will then return new value "Hello World Hotswap".
  

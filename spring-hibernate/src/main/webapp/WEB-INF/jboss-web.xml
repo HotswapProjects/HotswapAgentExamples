@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-web>
+    <security-domain flushOnSessionInvalidation="false">other</security-domain>
+    <context-root>/spring-hibernate</context-root>
+    <resource-ref>
+        <res-ref-name>jdbc/ToDoDB</res-ref-name>
+        <jndi-name>java:/jdbc/ToDoDB</jndi-name>
+        <res-type>javax.sql.DataSource</res-type>
+    </resource-ref>
+</jboss-web>

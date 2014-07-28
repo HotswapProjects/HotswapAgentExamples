@@ -10,7 +10,7 @@
         <version>0.1-beta4-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.hotswap.agent.examples</groupId>
+    <groupId>org.hotswap.examples</groupId>
     <artifactId>plain-java</artifactId>
     <version>0.1-beta4-SNAPSHOT</version>
 

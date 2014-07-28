@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.hotswap.agent.examples</groupId>
+        <artifactId>hotswap-agent-examples-servlet-parent</artifactId>
+        <version>0.1-beta4-SNAPSHOT</version>
+        <relativePath>../hotswap-agent-examples-servlet-parent</relativePath>
+    </parent>
+
+    <groupId>org.hotswap.examples</groupId>
+    <artifactId>plain-servlet</artifactId>
+    <packaging>war</packaging>
+
+    <profiles>
+        <profile>
+            <id>jboss7</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.jboss.as.plugins</groupId>
+                        <artifactId>jboss-as-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-surefire-report-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty4</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jetty4x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty5</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jetty5x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty6</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jetty6x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty7</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jetty7x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty8</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jetty8x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty9</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jetty9x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jetty9-run</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.eclipse.jetty</groupId>
+                        <artifactId>jetty-maven-plugin</artifactId>
+                    </plugin>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>tomcat6</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>tomcat6x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>tomcat7</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>tomcat7x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>tomcat8</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>tomcat8x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>jboss5x</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>jboss5x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>glassfish3</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>glassfish4x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>glassfish4</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>glassfish4x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>weblogic12x</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>weblogic121x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <tasks>
+                                <property name="build.compiler" value="extJavac"/>
+
+                                <!-- compile src/main/java-extra into target/extra -->
+                                <mkdir dir="target/extra"/>
+                                <javac srcdir="src/main/java-extra" destdir="target/extra">
+                                    <classpath refid="maven.compile.classpath"/>
+                                </javac>
+
+                                <!-- compile src/main/java-extra into target/extra -->
+                                <mkdir dir="target/hotswap"/>
+                                <javac srcdir="src/main/java-hotswap" destdir="target/hotswap">
+                                    <classpath refid="maven.compile.classpath"/>
+                                </javac>
+
+
+                                <!-- copy src/main/resources-extra into target/extra -->
+                                <copy todir="target/extra">
+                                    <fileset dir="src/main/resources-extra"/>
+                                </copy>
+
+                                <!-- copy src/main/resources-watch into target/watch -->
+                                <mkdir dir="target/watch"/>
+                                <copy todir="target/watch">
+                                    <fileset dir="src/main/resources-watch"/>
+                                </copy>
+
+                                <!-- copy src/main/resources-watch into target/webapp-extra -->
+                                <mkdir dir="target/webapp-extra"/>
+                                <copy todir="target/webapp-extra">
+                                    <fileset dir="src/main/webapp-extra"/>
+                                </copy>
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.hotswap.agent</groupId>
+            <artifactId>hotswap-agent</artifactId>
+            <version>${project.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.3.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-server</artifactId>
+            <version>7.6.14.v20131031</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <version>7.6.14.v20131031</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mortbay.jetty</groupId>
+            <artifactId>maven-jetty-plugin</artifactId>
+            <version>6.1.26</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.as</groupId>
+            <artifactId>jboss-as-ee</artifactId>
+            <version>7.1.3.Final</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.modules</groupId>
+            <artifactId>jboss-modules</artifactId>
+            <version>1.1.2.GA</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.web</groupId>
+            <artifactId>jbossweb</artifactId>
+            <version>7.0.17.Final</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

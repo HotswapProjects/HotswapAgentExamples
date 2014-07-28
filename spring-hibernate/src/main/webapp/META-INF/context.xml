@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tomcat configuration -->
+<Context antiJARLocking="true" path="/spring-hibernate">
+	<Resource auth="Container" driverClassName="org.h2.Driver" name="jdbc/ToDoDB"
+              type="javax.sql.DataSource" url="jdbc:h2:mem:test;DB_CLOSE_DELAY=-1"
+              username="SA" password="test"/>
+</Context>

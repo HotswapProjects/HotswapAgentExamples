@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Tomcat configuration -->
+<Context antiJARLocking="true" path="/plain-servlet">
+</Context>

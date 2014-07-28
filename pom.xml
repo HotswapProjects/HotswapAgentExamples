@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.hotswap.agent</groupId>
+    <artifactId>hotswap-agent-examples-aggregator</artifactId>
+    <version>0.1-beta4-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Hotswap Agent Examples Aggregator</name>
+    <description>Agregator for Hotswap Agent examples</description>
+    <url>https://github.com/HotswapProjects/HotswapAgentExamples</url>
+
+    <modules>
+        <module>hotswap-agent-examples-servlet-parent</module>
+        <module>plain-java</module>
+        <module>plain-servlet</module>
+        <module>custom-plugin</module>
+        <module>spring-hibernate</module>
+        <!--<module>seam-hibernate-jsf</module>-->
+        <!--<module>cdi-hibernate-jsf</module>-->
+    </modules>
+
+    <licenses>
+        <license>
+            <name>GNU General Public License (GPL)</name>
+            <url>http://www.gnu.org/licenses/gpl.txt</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>git</system>
+        <url>https://github.com/HotswapProjects/HotswapAgentExamples/issues</url>
+    </issueManagement>
+
+    <scm>
+        <connection>scm:git:http://github.com/HotswapProjects/HotswapAgentExamples.git</connection>
+        <developerConnection>scm:git:git@github.com/HotswapProjects/HotswapAgentExamples.git</developerConnection>
+        <url>https://github.com/HotswapProjects/HotswapAgentExamples</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>bubnik</id>
+            <name>Jiri Bubnik</name>
+            <roles>
+                <role>Admin</role>
+            </roles>
+            <organizationUrl>http://jiribubnik.cz</organizationUrl>
+        </developer>
+    </developers>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <localCheckout>true</localCheckout>
+                    <pushChanges>false</pushChanges>
+                    <releaseProfiles>release</releaseProfiles>
+                    <tagNameFormat>@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.1</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

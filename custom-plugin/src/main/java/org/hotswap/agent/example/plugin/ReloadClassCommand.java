@@ -19,7 +19,7 @@ public class ReloadClassCommand extends MergeableCommand {
      *                         classloader the class you want to call lives
      * @param className        reloaded className
      * @param testEnityService the target service registered with the plugin - not that we are still in the
-     *                         plugin classloader and the service cannot be typed to it's class.
+     *                         plugin classloader and the service cannot be typed to agentexamples's class.
      */
     public ReloadClassCommand(ClassLoader appClassLoader, String className, Object testEnityService) {
         this.appClassLoader = appClassLoader;
