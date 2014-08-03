@@ -29,6 +29,10 @@
                                 <!-- compile src/main/java-extra into target/extra -->
                                 <mkdir dir="target/extra"/>
                                 <javac srcdir="src/main/java-extra" destdir="target/extra"/>
+                                <!--compile extra to backup to return previous state during tests -->
+                                <mkdir dir="target/extraBackup"/>
+                                <javac srcdir="src/main/java-extra" destdir="target/extraBackup"/>
+
 
                                 <!-- compile src/main/java-extra into target/extra -->
                                 <mkdir dir="target/hotswap"/>
@@ -45,6 +49,7 @@
                                 <copy todir="target/watch">
                                     <fileset dir="src/main/resources-watch"/>
                                 </copy>
+
                             </tasks>
                         </configuration>
                         <goals>

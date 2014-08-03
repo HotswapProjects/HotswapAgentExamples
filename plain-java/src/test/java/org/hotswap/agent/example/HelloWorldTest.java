@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,8 +17,27 @@ import java.util.ResourceBundle;
  */
 public class HelloWorldTest {
     @Test
-    public void extraClassPathClassTest() {
+    public void extraClassPathClassStaticTest() {
         Assert.assertEquals("Assert class from target/extra is used.", "Hello World Extra", HelloWorld.hello());
+    }
+
+    @Test
+    public void extraClassPathClassTest() {
+        Assert.assertEquals("Assert class from target/extra is used.", "Hello Extra par", new HelloWorld().hello("par"));
+    }
+
+    @Test
+    public void extraClassPathAnnotationTest() throws Exception {
+        Class clazz = HelloWorld.class;
+
+        HelloAnnotation clazzAnnotation = (HelloAnnotation) clazz.getAnnotation(HelloAnnotation.class);
+        Assert.assertEquals("hello extra", clazzAnnotation.value());
+
+        Method helloMethod = clazz.getDeclaredMethod("hello", String.class);
+        HelloAnnotation methodAnnotation = (HelloAnnotation) helloMethod.getAnnotation(HelloAnnotation.class);
+        Assert.assertEquals("hello extra", methodAnnotation.value());
+        HelloAnnotation paramAnnotation = (HelloAnnotation) helloMethod.getParameterAnnotations()[0][0];
+        Assert.assertEquals("par extra", paramAnnotation.value());
     }
 
     @Test
