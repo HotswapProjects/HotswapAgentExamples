@@ -1,9 +1,6 @@
 package org.hotswap.agent.example.plugin;
 
-import org.hotswap.agent.annotation.Init;
-import org.hotswap.agent.annotation.Plugin;
-import org.hotswap.agent.annotation.Transform;
-import org.hotswap.agent.annotation.Watch;
+import org.hotswap.agent.annotation.*;
 import org.hotswap.agent.command.ReflectionCommand;
 import org.hotswap.agent.command.Scheduler;
 import org.hotswap.agent.javassist.CannotCompileException;
@@ -12,11 +9,14 @@ import org.hotswap.agent.javassist.NotFoundException;
 import org.hotswap.agent.logging.AgentLogger;
 import org.hotswap.agent.util.IOUtils;
 import org.hotswap.agent.util.PluginManagerInvoker;
-import org.hotswap.agent.watch.WatchEvent;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.URI;
+
+import static org.hotswap.agent.annotation.FileEvent.CREATE;
+import static org.hotswap.agent.annotation.LoadEvent.DEFINE;
+import static org.hotswap.agent.annotation.LoadEvent.REDEFINE;
 
 /**
  * The plugin system annotation is similar to Spring MVC way - use method annotation with variable
@@ -30,7 +30,7 @@ import java.net.URI;
         testedVersions = "Describe dependent framework version you have tested the plugin with.",
         expectedVersions = "Describe dependent framework version you expect to work the plugin with.")
 public class ExamplePlugin {
-    public static final String PLUGIN_PACKAGE = "org/hotswap/agent/agentexamples";
+    public static final String PLUGIN_PACKAGE = "org.hotswap.agent.agentexamples";
 
     // as an example, we will enhance this service to return content of examplePlugin.resource
     // and class load/reload counts in agentexamples's helloWorld service method
@@ -49,7 +49,7 @@ public class ExamplePlugin {
      * @param ctClass see @Transform javadoc for available parameter types. CtClass is convenient way
      *                to enhance method bytecode using javaasist
      */
-    @Transform(classNameRegexp = HELLO_WORLD_SERVICE)
+    @OnClassLoadEvent(classNameRegexp = HELLO_WORLD_SERVICE)
     public static void transformTestEntityService(CtClass ctClass) throws NotFoundException, CannotCompileException {
 
         // You need always find a place from which to initialize the plugin.
@@ -103,7 +103,7 @@ public class ExamplePlugin {
      * Use @Watch annotation to register resource event listener (using file NIO events). See @Watch javadoc
      * for available method parameter types.
      */
-    @Watch(path = "examplePlugin.resource")
+    @OnResourceFileEvent(path = "examplePlugin.resource")
     public void watchForResourceChange(URI uri) throws ClassNotFoundException, IllegalAccessException, NoSuchMethodException, InvocationTargetException, NotFoundException, CannotCompileException {
         // simple example - read new value and set agentexamples via reflection
         String examplePluginResourceText = new String(IOUtils.toByteArray(uri));
@@ -119,7 +119,7 @@ public class ExamplePlugin {
     /**
      * Count how many classes were loaded after the plugin is initialized (after HELLO_WORLD_SERVICE constructor).
      */
-    @Transform(classNameRegexp = "org.hotswap.agentexamples.*", onReload = false)
+    @OnClassLoadEvent(classNameRegexp = "org.hotswap.agentexamples.*", events = DEFINE)
     public void loadClass() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // you can use scheduler to run framework method asynchronously
         // there is convenient ReflectionCommand, which runs method in the target classloader, the reflection
@@ -135,7 +135,7 @@ public class ExamplePlugin {
      * (Note - if you test the behaviour and reload TestEntityService or TestRepository - the spring bean
      *  gets reloaded and new instance is created, try the behaviour).
      */
-    @Transform(classNameRegexp = ".*", onDefine = false)
+    @OnClassLoadEvent(classNameRegexp = ".*", events = REDEFINE)
     public void reloadClass(String className) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // run the logic in a command. Multiple reload commands may be merged into one execution (see the command class)
         scheduler.scheduleCommand(new ReloadClassCommand(appClassLoader, className, helloWorldService));
@@ -148,14 +148,8 @@ public class ExamplePlugin {
      * One caveat - although only CREATE type is watched for, compile process will generate DELETE/CREATE sequence
      * for modification.
      */
-    @Watch(path = PLUGIN_PACKAGE, filter = ".*.class", watchEvents = {WatchEvent.WatchEventType.CREATE})
-    public void changeClassFile(URI file) {
-        String path = file.getPath();
-        // strip of path prefix (before package name)
-        path = path.substring(file.getPath().indexOf(PLUGIN_PACKAGE));
-        // strip of .class suffix
-        String className = path.substring(0, path.indexOf(".class"));
-
+    @OnClassFileEvent(classNameRegexp = PLUGIN_PACKAGE + ".*", events = CREATE)
+    public void changeClassFile(String className) {
         // Schedule command with longer timeout to wait for other similar commands and merge them into single event
         scheduler.scheduleCommand(new ReloadClassCommand(appClassLoader, className, helloWorldService), 500);
     }

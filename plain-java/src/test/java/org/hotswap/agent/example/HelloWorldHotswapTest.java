@@ -36,7 +36,7 @@ public class HelloWorldHotswapTest {
 //        Thread.sleep();
 
         // wait for the hotswap
-        boolean result = WaitHelper.waitForCommand(new WaitHelper.Command() {
+        WaitHelper.waitForCommand(new WaitHelper.Command() {
             @Override
             public boolean result() throws Exception {
                 return "Hello World Hotswap".equals(HelloWorldHotswap.hello());
@@ -44,7 +44,7 @@ public class HelloWorldHotswapTest {
         });
 
         // check that it works
-        Assert.assertTrue("Assert hotswapped class in extra is used.", result);
+        Assert.assertEquals("Assert hotswapped class in extra is used.", "Hello World Hotswap", HelloWorldHotswap.hello());
 
         Assert.assertEquals("Hello Hotswap par", new HelloWorldHotswap().hello("par"));
 
