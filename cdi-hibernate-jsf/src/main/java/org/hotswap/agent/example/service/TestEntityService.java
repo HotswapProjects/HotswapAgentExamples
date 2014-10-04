@@ -1,4 +1,4 @@
-package org.hotswap.agent.it.service;
+package org.hotswap.agent.example.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -8,7 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 
-import org.hotswap.agent.it.model.TestEntity;
+import org.hotswap.agent.example.model.TestEntity;
 
 /**
  * Experiment with this service in debug mode to check Spring reloading.

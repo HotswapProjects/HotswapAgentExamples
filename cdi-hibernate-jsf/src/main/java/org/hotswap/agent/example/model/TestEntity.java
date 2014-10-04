@@ -1,4 +1,4 @@
-package org.hotswap.agent.it.model;
+package org.hotswap.agent.example.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package org.hotswap.agent.it.plugin;
+package org.hotswap.agent.example.plugin;
 
 import org.hotswap.agent.command.MergeableCommand;
 import org.hotswap.agent.logging.AgentLogger;
