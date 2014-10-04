@@ -1,4 +1,4 @@
-package org.hotswap.agent.it.em;
+package org.hotswap.agent.example.em;
 
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.inject.Disposes;

@@ -30,12 +30,17 @@
                 <enabled>false</enabled>
             </releases>
         </repository>
-
+        <repository>  
+            <id>jboss-public-repository-group</id>  
+            <name>JBoss Public Maven Repository Group</name>  
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>  
+            <layout>default</layout>  
+        </repository>  
     </repositories>
 
     <properties>
         <org.hibernateframework.version>4.2.0.Final</org.hibernateframework.version>
-        <seam.version>2.3.0.Final</seam.version>
+        <seam.version>2.3.1.Final</seam.version>
         <skip.integration.tests>true</skip.integration.tests>
         <skip.unit.tests>true</skip.unit.tests>
     </properties>

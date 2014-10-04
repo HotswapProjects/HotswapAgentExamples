@@ -1,4 +1,4 @@
-package org.hotswap.agent.it.mvc;
+package org.hotswap.agent.example.mvc;
 
 import java.io.IOException;
 import java.util.List;
@@ -7,8 +7,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import org.hotswap.agent.it.model.TestEntity;
-import org.hotswap.agent.it.service.TestEntityService;
+import org.hotswap.agent.example.model.TestEntity;
+import org.hotswap.agent.example.service.TestEntityService;
 
 /**
  * Simple Spring MVC controller.

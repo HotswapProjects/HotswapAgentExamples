@@ -1,6 +1,6 @@
-package org.hotswap.agent.it.plugin;
+package org.hotswap.agent.example.plugin;
 
-import org.hotswap.agent.it.service.TestEntityService;
+import org.hotswap.agent.example.service.TestEntityService;
 
 /**
  * This class should be used in the application classloader.
