@@ -18,8 +18,11 @@
         <module>plain-servlet</module>
         <module>custom-plugin</module>
         <module>spring-hibernate</module>
-        <!--<module>seam-hibernate-jsf</module>-->
-        <!--<module>cdi-hibernate-jsf</module>-->
+        <!-- 
+        <module>seam-hibernate-jsf</module>
+        <module>cdi-hibernate-jsf</module>
+        <module>primefaces-jsf</module>
+         -->
     </modules>
 
     <licenses>
