@@ -38,27 +38,12 @@ public class TestEntityService {
         return "Hello World";
     }
 
+    public String helloWorld3() {
+        return "Hello World2";
+    }
+
     // return text from repository and ExamplePlugin values.
     public String helloWorldRepository() {
         return testRepository.helloWorld();
-    }
-
-    /**
-     * See ExamplePlugin
-     */
-    String examplePluginResourceText = "";
-    int loadedClasses = 0;
-    int reloadedClasses = 0;
-
-    public void setExamplePluginResourceText(String examplePluginResourceText) {
-        this.examplePluginResourceText = examplePluginResourceText;
-    }
-
-    public void setLoadedClasses(Integer loadedClasses) {
-        this.loadedClasses = loadedClasses;
-    }
-
-    public void addReloadedClass() {
-        reloadedClasses++;
     }
 }

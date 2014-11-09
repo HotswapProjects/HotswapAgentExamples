@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.hotswap.agent.examples</groupId>
         <artifactId>hotswap-agent-examples-servlet-parent</artifactId>
-        <version>0.1-beta5-SNAPSHOT</version>
+        <version>0.2.1-SNAPSHOT</version>
         <relativePath>../hotswap-agent-examples-servlet-parent</relativePath>
     </parent>
 
@@ -21,27 +21,14 @@
         <skip.integration.tests>true</skip.integration.tests>
         <skip.unit.tests>false</skip.unit.tests>
 
-        <!-- properties to run integration tests. Override in keep-server-running profile -->
-        <jetty.waitForChild>false</jetty.waitForChild>
     </properties>
 
     <profiles>
         <profile>
-            <id>jboss7</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jboss.as.plugins</groupId>
-                        <artifactId>jboss-as-maven-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>jetty9</id>
+            <id>jetty9-run</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <build>
                 <plugins>
                     <plugin>
@@ -53,32 +40,17 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>
-        <profile>
-            <id>tomcat7</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.tomcat.maven</groupId>
-                        <artifactId>tomcat7-maven-plugin</artifactId>
-                    </plugin>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
+            <dependencies>
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <version>1.4.178</version>
+                </dependency>
+            </dependencies>
         </profile>
     </profiles>
 
     <dependencies>
-
-        <!-- Dependency to HotswapAgent only to compile ExamplePlugin -->
-        <dependency>
-            <groupId>org.hotswap.agent</groupId>
-            <artifactId>hotswap-agent</artifactId>
-            <version>${project.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -174,30 +146,13 @@
             <scope>test</scope>
         </dependency>
 
-        <!--Just to get Jetty sources into IDE-->
+        <!-- Needed only for WaitHelper -->
         <dependency>
-            <groupId>org.mortbay.jetty</groupId>
-            <artifactId>maven-jetty-plugin</artifactId>
-            <version>6.1.26</version>
+            <groupId>org.hotswap.agent</groupId>
+            <artifactId>hotswap-agent-core</artifactId>
+            <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
-
-        <!--Just to get Tomcat sources into IDE-->
-        <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>tomcat-catalina</artifactId>
-            <version>7.0.52</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--Just to get JBoss modules classloader sources into IDE-->
-        <dependency>
-            <groupId>org.jboss.modules</groupId>
-            <artifactId>jboss-modules</artifactId>
-            <version>1.3.3.Final</version>
-            <scope>provided</scope>
-        </dependency>
-
 
     </dependencies>
 

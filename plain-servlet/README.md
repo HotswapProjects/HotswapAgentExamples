@@ -21,4 +21,4 @@ check that all plugins are
 
 Application server support
 ==========================
-
+See run-test.sh for list of tested servers.

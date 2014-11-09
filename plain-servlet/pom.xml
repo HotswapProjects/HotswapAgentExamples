@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.hotswap.agent.examples</groupId>
         <artifactId>hotswap-agent-examples-servlet-parent</artifactId>
-        <version>0.1-beta5-SNAPSHOT</version>
+        <version>0.2.1-SNAPSHOT</version>
         <relativePath>../hotswap-agent-examples-servlet-parent</relativePath>
     </parent>
 

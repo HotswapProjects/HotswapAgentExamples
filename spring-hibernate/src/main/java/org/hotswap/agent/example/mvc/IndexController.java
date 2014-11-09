@@ -36,7 +36,7 @@ public class IndexController {
     public void helloWorldRepository(Writer writer) throws IOException {
         // applicationContext.getBean instead of autowired service, because Spring MVC bean is sometimes
         // not reloaded - will be part of Spring MVC plugin
-        writer.write(applicationContext.getBean(TestEntityService.class).helloWorldRepository());
+        writer.write(applicationContext.getBean(TestEntityService.class).helloWorld3());
     }
 
     /**

@@ -6,11 +6,10 @@
     <parent>
         <groupId>org.hotswap.agent</groupId>
         <artifactId>hotswap-agent-parent</artifactId>
-        <version>0.1-beta5-SNAPSHOT</version>
+        <version>0.2.1-SNAPSHOT</version>
     </parent>
     
     <groupId>org.hotswap.examples</groupId>
-
     <artifactId>cdi-hibernate-jsf</artifactId>
 
     <packaging>war</packaging>

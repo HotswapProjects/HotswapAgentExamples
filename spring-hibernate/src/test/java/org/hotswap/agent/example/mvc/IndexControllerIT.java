@@ -19,7 +19,7 @@ import java.nio.file.StandardCopyOption;
 import static org.junit.Assert.assertEquals;
 
 public class IndexControllerIT {
-    String ENDPOINT = "http://localhost:8080/spring-hibernate/mvc/";
+    String ENDPOINT = "http://localhost:8080/mvc/";
 
     @Test
     public void testUpAndRunning() throws Exception {

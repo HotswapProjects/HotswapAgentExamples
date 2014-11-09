@@ -14,8 +14,8 @@ function test {
     mvn clean install
 
     # run tests for different versions
-    cd plain-java; run-tests.sh; cd ..
-    cd plain-servlet; run-tests.sh; cd ..
+    cd plain-java; ./run-tests.sh; cd ..
+    cd plain-servlet; ./run-tests.sh; cd ..
 
     # TODO
     # custom-plugin
