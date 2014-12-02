@@ -229,7 +229,7 @@
                     <deployables>
                         <deployable>
                             <properties>
-                                <context>/plain-servlet</context>
+                                <context>/${project.name}</context>
                             </properties>
                         </deployable>
                     </deployables>
