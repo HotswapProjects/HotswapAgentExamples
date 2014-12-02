@@ -39,7 +39,7 @@ public class HelloWorldServletHotswapIT {
             public boolean result() throws Exception {
                 HttpResponse httpResponse = HttpClientBuilder.create().build().execute(request);
                 String result = EntityUtils.toString(httpResponse.getEntity());
-System.err.println(result);
+
                 return "Hello World Hotswap".equals(result);
             }
         });
