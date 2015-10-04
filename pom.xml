@@ -21,6 +21,7 @@
         <module>seam-hibernate-jsf</module>
         <module>cdi-hibernate-jsf</module>
         <module>primefaces-jsf</module>
+        <module>ejb-cdi-hibernate-jsf</module>
     </modules>
 
     <licenses>
