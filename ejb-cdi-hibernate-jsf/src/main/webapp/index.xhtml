@@ -3,7 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
     xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:h="http://java.sun.com/jsf/html">
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ds="http://deltaspike.apache.org/jsf">
 <h:head>
     <title>EJB-CDI-Hibernate-JSF test application</title>
 </h:head>
@@ -13,6 +14,7 @@
         <h:panelGrid columns="1">
             <h:outputText value="Test messages : #{messages['test.hello_world']}" />
             <h:outputText value="#{indexComponent.helloWorld()}" />
+            <h:outputText value="#{dsWinScopedTest.helloWorld()}" />
             <h:dataTable value="#{indexComponent.getTestEntityList()}" var="_item">
                 <h:column>
                     <h:outputText value="#{_item.name}" />
@@ -21,5 +23,6 @@
             </h:dataTable>
         </h:panelGrid>
     </h:form>
+    <ds:windowId/>
 </h:body>
 </html>
