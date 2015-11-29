@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+        http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.hotswap.agent</groupId>
+  <artifactId>resteasy-parent</artifactId>
+  <version>0.3.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Parent POM</name>
+
+  <modules>
+    <module>./resteasy-model</module>
+    <module>./resteasy-managment</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>commons-dbutils</groupId>
+        <artifactId>commons-dbutils</artifactId>
+        <version>1.6</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20141113</version>
+      </dependency>
+
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>javax</groupId>
+        <artifactId>javaee-web-api</artifactId>
+        <version>7.0</version>
+        <scope>provided</scope>
+      </dependency>
+
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.1.4</version>
+      <scope>test</scope>
+      <type>jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-core-asl</artifactId>
+      <version>1.9.12</version>
+      <type>jar</type>
+    </dependency>
+    <dependency>
+      <groupId>commons-dbutils</groupId>
+      <artifactId>commons-dbutils</artifactId>
+
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.3</version>
+        <configuration>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <!-- <execution> <id>compile</id> <phase>install</phase> <configuration>
+            <target unless="${is.hudson}"> <ant antfile="..\pombuild.xml" target="InstallWar"/>
+            </target> </configuration> <goals> <goal>run</goal> </goals> </execution>
+            <execution> <id>clean</id> <configuration> <target unless="${is.hudson}">
+            <ant antfile="..\pombuild.xml" target="UninstallWar"/> </target> </configuration>
+            <phase>pre-clean</phase> <goals> <goal>run</goal> </goals> </execution> -->
+
+        </executions>
+      </plugin>
+
+
+    </plugins>
+  </build>
+
+  <properties>
+    <maven.compiler.source>1.7</maven.compiler.source>
+    <maven.compiler.target>1.7</maven.compiler.target>
+    <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+
+    <netbeans.hint.jdkPlatform>JDK_1.7</netbeans.hint.jdkPlatform>
+    <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
+    <build-date>${maven.build.timestamp}</build-date>
+
+    <java.version>1.7</java.version>
+    <junit.version>4.11</junit.version>
+    <bootstrap.version>3.1.1</bootstrap.version>
+    <jquery.version>1.11.0</jquery.version>
+    <angularjs.version>1.2.12</angularjs.version>
+    <highcharts.version>3.0.10</highcharts.version>
+    <openlayers.version>2.13.1</openlayers.version>
+    <angular-ui-bootstrap.version>0.10.0</angular-ui-bootstrap.version>
+    <angular-file-upload.version>1.2.5</angular-file-upload.version>
+
+    <jersey.version>2.18</jersey.version>
+
+    <maven.compiler.source>${java.version}</maven.compiler.source>
+    <maven.compiler.target>${java.version}</maven.compiler.target>
+
+  </properties>
+
+
+</project>
