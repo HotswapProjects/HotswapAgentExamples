@@ -3,9 +3,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>DTPH Services</title>
+        <title>RestEasy Services</title>
     </head>
     <body>
-        <h1 style="color:red">DTPH Services</h1>
+        <h1 style="color:red">RestEasy Services</h1>
     </body>
 </html>

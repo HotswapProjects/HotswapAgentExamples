@@ -13,7 +13,7 @@ import org.hotswap.agent.example.model.Person;
  */
 @Path("/PersonManagement")
 @Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
-public class ProjectAndContractServices {
+public class PersonManagement {
 
     @GET
     @Path("Person")
