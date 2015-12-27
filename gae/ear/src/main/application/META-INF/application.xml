@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application version="5" xmlns="http://java.sun.com/xml/ns/javaee"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_5.xsd">
+    <description>GAE multi-module sample</description>
+    <display-name>GAE multi-module sample</display-name>
+    <module>
+        <web>
+            <web-uri>gae-default-0.0.1-SNAPSHOT.war</web-uri>
+            <context-root>default</context-root>
+        </web>
+    </module>
+    <module>
+        <web>
+            <web-uri>gae-backend-0.0.1-SNAPSHOT.war</web-uri>
+            <context-root>backend</context-root>
+        </web>
+    </module>
+    <library-directory>lib</library-directory>
+</application>

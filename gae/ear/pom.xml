@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.google.developers</groupId>
+		<artifactId>gae-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>gae-ear</artifactId>
+
+	<packaging>ear</packaging>
+
+	<name>gae-ear</name>
+
+	<url>http://developers.google.com/</url>
+
+	<prerequisites>
+		<!-- required by appengine-maven-plugin -->
+		<maven>3.1.0</maven>
+	</prerequisites>
+
+	<build>
+		<plugins>
+
+			<!-- phase: package -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<unpackTypes>war</unpackTypes>
+					<!-- in order to interpolate version from pom into appengine-web.xml -->
+					<filtering>true</filtering>
+					<!-- TODO skip building the ear -->
+					<packagingIncludes></packagingIncludes>
+				</configuration>
+			</plugin>
+
+			<!-- inherited -->
+			<plugin>
+				<artifactId>maven-help-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<!-- All profiles that are active by default are automatically deactivated
+		when a profile in the POM is activated on the command line or through its
+		activation config. - http://maven.apache.org/guides/introduction/introduction-to-profiles.html -->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>appengine:devserver</defaultGoal>
+			</build>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<build>
+				<defaultGoal>clean appengine:update</defaultGoal>
+			</build>
+		</profile>
+		<profile>
+			<id>beta</id>
+			<build>
+				<defaultGoal>clean appengine:update</defaultGoal>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.developers</groupId>
+			<artifactId>gae-default</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.google.developers</groupId>
+			<artifactId>gae-backend</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+</project>
