@@ -1,0 +1,115 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<artifactId>gae-parent</artifactId>
+		<groupId>com.google.developers</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>gae-default</artifactId>
+
+	<packaging>war</packaging>
+
+	<name>gae-default</name>
+
+	<description>default module for gae</description>
+
+	<url>https://developers.google.com/</url>
+
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<developers>
+		<developer>
+			<id>+FrankR</id>
+			<name>Frank R.</name>
+			<email>renfeng.cn@gmail.com</email>
+			<url>https://plus.google.com/+FrankR</url>
+			<organization>GDG Suzhou</organization>
+			<organizationUrl>http://developers.dushu.hu</organizationUrl>
+			<timezone>+8</timezone>
+			<roles>
+				<role>Organizer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:https://github.com/renfeng/HotswapAgentExamples/commit/${buildNumber}</connection>
+	</scm>
+
+	<organization>
+		<name>GDG Suzhou</name>
+		<url>http://developers.dushu.hu/</url>
+	</organization>
+
+	<build>
+		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+		<finalName>gae-default</finalName>
+		<plugins>
+
+			<!-- phase: prepare-package -->
+
+			<!-- inherited -->
+			<plugin>
+				<artifactId>maven-help-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+
+	</build>
+
+	<!-- All profiles that are active by default are automatically deactivated
+		when a profile in the POM is activated on the command line or through its
+		activation config. - http://maven.apache.org/guides/introduction/introduction-to-profiles.html -->
+	<profiles>
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<defaultGoal>appengine:devserver</defaultGoal>
+			</build>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<build>
+				<defaultGoal>clean install appengine:update</defaultGoal>
+			</build>
+		</profile>
+		<profile>
+			<id>beta</id>
+			<build>
+				<defaultGoal>clean install appengine:update</defaultGoal>
+			</build>
+		</profile>
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.developers</groupId>
+			<artifactId>gae-shared</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>

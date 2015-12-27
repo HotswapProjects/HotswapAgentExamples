@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- https://developers.google.com/appengine/docs/java/config/cron -->
+<!-- https://developers.google.com/appengine/docs/java/config/cron#Java_appengine_web_xml_The_schedule_format -->
+<!-- https://googleappengine.googlecode.com/svn-history/r109/trunk/java/docs/cron.xsd -->
+<!-- xmlns="/home/renfeng/.m2/repository/com/google/appengine/appengine-java-sdk/1.8.9/appengine-java-sdk/appengine-java-sdk-1.8.9/docs/cron.xsd" -->
+<cronentries>
+
+	<!-- A cron job will invoke a URL, using an HTTP GET request, at a given
+		time of day. An HTTP request invoked by cron can run for up to 10 minutes,
+		but is subject to the same limits as other HTTP requests. -->
+	<!-- Free applications can have up to 20 scheduled tasks. Paid applications
+		can have up to 100 scheduled tasks. -->
+
+	<cron>
+		<url>/cron/long-task</url>
+
+		<!-- With a schedule of every hour, it exceeded the free quota of 8 as shown on
+		https://cloud.google.com/appengine/docs/quotas#Instance
+		Since, this is a B2 class, the available hours are four. Counted as partial quarter hours.
+		-->
+		<!-- It shows 9 hours on https://appengine.google.com/dashboard/quotadetails?&app_id=s~effective-forge-706 -->
+		<schedule>every 3 hours</schedule>
+		<!--<schedule>every 60 minutes</schedule>-->
+
+		<!-- The target string is prepended to your app's hostname. It is usually the name of a module.
+		The cron job will be routed to the default version of the named module.
+		Note that if the default version of the module changes, the job will run in the new default version. -->
+		<target>${appengine.module.backend}</target>
+	</cron>
+
+</cronentries>

@@ -1,0 +1,2506 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building gae-ear 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:2.2:describe (default-cli) @ gae-ear ---
+[INFO] com.google.appengine:appengine-maven-plugin:1.9.11
+
+Name: A Maven Plugin for running and deploying appengine applications
+Description: The App Engine maven plugin which can be used to interact with
+  both the development server and the remote runtime.
+Group Id: com.google.appengine
+Artifact Id: appengine-maven-plugin
+Version: 1.9.11
+Goal Prefix: appengine
+
+This plugin has 29 goals:
+
+appengine:backends_configure
+  Description: Configure the specified backend.
+  Implementation: com.google.appengine.appcfg.BackendsConfigure
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:backends_delete
+  Description: Delete the specified backend.
+  Implementation: com.google.appengine.appcfg.BackendsDelete
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:backends_rollback
+  Description: Roll back a previously in-progress update.
+  Implementation: com.google.appengine.appcfg.BackendsRollback
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:backends_start
+  Description: Start the specified backend.
+  Implementation: com.google.appengine.appcfg.BackendsStart
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:backends_stop
+  Description: Stop the specified backend.
+  Implementation: com.google.appengine.appcfg.BackendsStop
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:backends_update
+  Description: Update the specified backend or all backends.
+  Implementation: com.google.appengine.appcfg.BackendsUpdate
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:create-property
+  Description: Maven project version is dot based, e.g '1.9.7' , whereas
+    appengine-web.xml is dash baseb, e.g. '1-9-7' This goal creates a Maven
+    property with a correct app engine version.
+  Implementation: com.google.appengine.CreateGoodVersionFromPomVersionMojo
+  Language: java
+
+  Available parameters:
+
+    mavenProject
+      User property: project
+      (no description available)
+
+    propertyName (Default: AppEngineFriendlyVersion)
+      User property: $appengine.create-property-version
+      (no description available)
+
+appengine:debug
+  Description: Debug the specified VM Runtime instance.
+  Implementation: com.google.appengine.appcfg.Debug
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:devserver
+  Description: Runs the App Engine development server.
+  Implementation: com.google.appengine.devappserver.DevAppServerRunner
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    address
+      User property: appengine.address
+      The address of the interface on the local machine to bind to (or 0.0.0.0
+      for all interfaces).
+
+    appDir
+      User property: appengine.appDir
+      The location of the appengine application to run.
+
+    disableUpdateCheck
+      User property: appengine.disableUpdateCheck
+      Disable the check for newer SDK version.
+
+    fullScanSeconds (Default: 5)
+      User property: appengine.fullScanSeconds
+      The web app scan delay in seconds to check for app changes for app
+      reload. A negative value will cancel the scan thread.
+
+    jvmFlags
+      User property: appengine.jvmFlags
+      Additional flags to the JVM used to run the dev server.
+
+    offline
+      User property: settings.offline
+      Whether the system is currently offline.
+
+    port
+      User property: appengine.port
+      The port number to bind to on the local machine.
+
+    server
+      User property: appengine.server
+      The server to use to determine the latest SDK version.
+
+appengine:devserver_start
+  Description: Starts the App Engine development server and does not wait.
+  Implementation: com.google.appengine.devappserver.DevAppServerAsyncStart
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'validate'
+
+  Available parameters:
+
+    address
+      User property: appengine.address
+      The address of the interface on the local machine to bind to (or 0.0.0.0
+      for all interfaces).
+
+    appDir
+      User property: appengine.appDir
+      The location of the appengine application to run.
+
+    disableUpdateCheck
+      User property: appengine.disableUpdateCheck
+      Disable the check for newer SDK version.
+
+    fullScanSeconds (Default: 5)
+      User property: appengine.fullScanSeconds
+      The web app scan delay in seconds to check for app changes for app
+      reload. A negative value will cancel the scan thread.
+
+    jvmFlags
+      User property: appengine.jvmFlags
+      Additional flags to the JVM used to run the dev server.
+
+    offline
+      User property: settings.offline
+      Whether the system is currently offline.
+
+    port
+      User property: appengine.port
+      The port number to bind to on the local machine.
+
+    server
+      User property: appengine.server
+      The server to use to determine the latest SDK version.
+
+appengine:devserver_stop
+  Description: Stops the App Engine development server.
+  Implementation: com.google.appengine.devappserver.DevAppServerStop
+  Language: java
+
+  Available parameters:
+
+    address
+      User property: appengine.address
+      The address of the interface on the local machine to bind to (or 0.0.0.0
+      for all interfaces).
+
+    disableUpdateCheck
+      User property: appengine.disableUpdateCheck
+      Disable the check for newer SDK version.
+
+    fullScanSeconds (Default: 5)
+      User property: appengine.fullScanSeconds
+      The web app scan delay in seconds to check for app changes for app
+      reload. A negative value will cancel the scan thread.
+
+    jvmFlags
+      User property: appengine.jvmFlags
+      Additional flags to the JVM used to run the dev server.
+
+    offline
+      User property: settings.offline
+      Whether the system is currently offline.
+
+    port
+      User property: appengine.port
+      The port number to bind to on the local machine.
+
+    server
+      User property: appengine.server
+      The server to use to determine the latest SDK version.
+
+appengine:endpoints_get_client_lib
+  Description: App Engine endpoints get-client-lib ... command.
+  Implementation: com.google.appengine.endpoints.EndpointsGetClientLib
+  Language: java
+  Bound to phase: compile
+
+  Available parameters:
+
+    buildSystem (Default: maven)
+      User property: buildSystem
+      The build system used for building the generated client project: maven or
+      gradle.
+
+    classes (Default: ${project.build.directory}/classes)
+      User property: classes
+      The classpath of the service-classes.
+
+    clientLibsDirectory (Default:
+    ${project.build.directory}/endpoints-client-libs)
+      User property: outputDirectory
+      The directory for the generated Maven client lib projects.
+
+    outputDirectory (Default:
+    ${project.build.directory}/generated-sources/appengine-endpoints)
+      User property: outputDirectory
+      The directory for the generated discovery file.
+
+    serviceClassNames
+      User property: serviceClassNames
+      The full qualified names of the service endpoints classes(comma
+      separated). If not specified, the maven plugin will calculate the list
+      based on Annotation scanning of @Api classes.
+
+    webXmlSourcePath (Default: ${basedir}/src/main/webapp/WEB-INF/web.xml)
+      User property: warSourceDirectory
+      The source location of the web.xml file.
+
+appengine:endpoints_get_discovery_doc
+  Description: App Engine endpoints get-discovery-doc command.
+  Implementation: com.google.appengine.endpoints.EndpointsGetDiscoveryDoc
+  Language: java
+  Bound to phase: compile
+
+  Available parameters:
+
+    buildSystem (Default: maven)
+      User property: buildSystem
+      The build system used for building the generated client project: maven or
+      gradle.
+
+    classes (Default: ${project.build.directory}/classes)
+      User property: classes
+      The classpath of the service-classes.
+
+    outputDirectory (Default:
+    ${project.build.directory}/generated-sources/appengine-endpoints)
+      User property: outputDirectory
+      The directory for the generated discovery file.
+
+    serviceClassNames
+      User property: serviceClassNames
+      The full qualified names of the service endpoints classes(comma
+      separated). If not specified, the maven plugin will calculate the list
+      based on Annotation scanning of @Api classes.
+
+    webXmlSourcePath (Default: ${basedir}/src/main/webapp/WEB-INF/web.xml)
+      User property: warSourceDirectory
+      The source location of the web.xml file.
+
+appengine:enhance
+  Description: Runs the datanucleus enhancer.
+  Implementation: com.google.appengine.AppengineEnhancerMojo
+  Language: java
+  Bound to phase: compile
+
+  Available parameters:
+
+    enhancerApi (Default: JDO)
+      User property: appengine.enhancerApi
+      The api to use ( JDO or JPA ) for enhancement
+
+appengine:gcloud_app_deploy
+  Description: Deploy an application via gcloud deploy.
+  Implementation: com.google.appengine.gcloudapp.GCloudAppDeploy
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    gcloud_app_docker_host
+      User property: appengine.gcloud_app_docker_host
+      docker_host
+
+    gcloud_app_env_vars
+      User property: appengine.gcloud_app_env_vars
+      env-vars ENV_VARS Environment variable overrides for your app.
+
+    gcloud_app_force
+      User property: appengine.gcloud_app_force
+      force Force deploying, overriding any previous in-progress deployments to
+      this version.
+
+    gcloud_app_server
+      User property: appengine.gcloud_app_server
+      server The App Engine server to connect to.
+
+    gcloud_app_version
+      User property: appengine.gcloud_app_version
+      version The version of the app that will be created or replaced by this
+      deployment.
+
+    gcloud_directory
+      User property: appengine.gcloud_directory
+      gcloud installation directory
+
+    gcloud_project
+      User property: appengine.gcloud_project
+      Google Cloud Platform project to use for this invocation.
+
+    gcloud_verbosity
+      User property: appengine.gcloud_verbosity
+      Override the default verbosity for this command. This must be a standard
+      logging verbosity level: [debug, info, warning, error, critical, none]
+      (Default: [warning]).
+
+    server
+      User property: appengine.server
+      server The App Engine server to connect to.
+
+appengine:gcloud_app_run
+  Description: Runs the App Engine development server.
+  Implementation: com.google.appengine.gcloudapp.GCloudAppRun
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    address
+      User property: appengine.address
+      The address of the interface on the local machine to bind to (or 0.0.0.0
+      for all interfaces).
+
+    appDir
+      User property: appengine.appDir
+      The location of the appengine application to run.
+
+    gcloud_app_admin_host
+      User property: appengine.gcloud_app_admin_host
+      host name to which the admin server should bind (default: localhost)
+
+    gcloud_app_admin_port
+      User property: appengine.gcloud_app_admin_port
+      port to which the admin server should bind (default: 8000)
+
+    gcloud_app_api_host
+      User property: appengine.gcloud_app_api_host
+      host to which the server for API calls should bind (default: locahost)
+
+    gcloud_app_docker_host
+      User property: appengine.gcloud_app_docker_host
+      docker_host
+
+    gcloud_app_enable_cloud_datastore
+      User property: appengine.gcloud_app_enable_cloud_datastore
+      enable_cloud_datastore
+
+    gcloud_app_host
+      User property: appengine.gcloud_app_host
+      host name to which application modules should bind (default: localhost)
+
+    gcloud_app_log_level
+      User property: appengine.gcloud_app_log_level
+      The minimum verbosity of logs from your app that will be displayed in the
+      terminal. (debug, info, warning, critical, error) Defaults to current
+      verbosity setting.
+
+    gcloud_app_port
+      User property: appengine.gcloud_app_port
+      lowest port to which application modules should bind (default: 8080)
+
+    gcloud_app_storage_path
+      User property: appengine.gcloud_app_storage_path
+      The path to the datastore, or blobstore to use for this application.
+
+    gcloud_directory
+      User property: appengine.gcloud_directory
+      gcloud installation directory
+
+    gcloud_modules
+      User property: appengine.gcloud_modules
+      Additional directories containing App Engine modules to be run.
+
+    gcloud_project
+      User property: appengine.gcloud_project
+      Google Cloud Platform project to use for this invocation.
+
+    gcloud_verbosity
+      User property: appengine.gcloud_verbosity
+      Override the default verbosity for this command. This must be a standard
+      logging verbosity level: [debug, info, warning, error, critical, none]
+      (Default: [warning]).
+
+    port
+      User property: appengine.port
+      The port number to bind to on the local machine.
+
+    server
+      User property: appengine.server
+      The server to use to determine the latest SDK version.
+
+appengine:gcloud_app_run_start
+  Description: Starts the Gcloud App Engine development server and does not
+    wait.
+  Implementation: com.google.appengine.gcloudapp.GcloudAppAsyncStart
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'validate'
+
+  Available parameters:
+
+    address
+      User property: appengine.address
+      The address of the interface on the local machine to bind to (or 0.0.0.0
+      for all interfaces).
+
+    appDir
+      User property: appengine.appDir
+      The location of the appengine application to run.
+
+    gcloud_app_admin_host
+      User property: appengine.gcloud_app_admin_host
+      host name to which the admin server should bind (default: localhost)
+
+    gcloud_app_admin_port
+      User property: appengine.gcloud_app_admin_port
+      port to which the admin server should bind (default: 8000)
+
+    gcloud_app_api_host
+      User property: appengine.gcloud_app_api_host
+      host to which the server for API calls should bind (default: locahost)
+
+    gcloud_app_docker_host
+      User property: appengine.gcloud_app_docker_host
+      docker_host
+
+    gcloud_app_enable_cloud_datastore
+      User property: appengine.gcloud_app_enable_cloud_datastore
+      enable_cloud_datastore
+
+    gcloud_app_host
+      User property: appengine.gcloud_app_host
+      host name to which application modules should bind (default: localhost)
+
+    gcloud_app_log_level
+      User property: appengine.gcloud_app_log_level
+      The minimum verbosity of logs from your app that will be displayed in the
+      terminal. (debug, info, warning, critical, error) Defaults to current
+      verbosity setting.
+
+    gcloud_app_port
+      User property: appengine.gcloud_app_port
+      lowest port to which application modules should bind (default: 8080)
+
+    gcloud_app_storage_path
+      User property: appengine.gcloud_app_storage_path
+      The path to the datastore, or blobstore to use for this application.
+
+    gcloud_directory
+      User property: appengine.gcloud_directory
+      gcloud installation directory
+
+    gcloud_modules
+      User property: appengine.gcloud_modules
+      Additional directories containing App Engine modules to be run.
+
+    gcloud_project
+      User property: appengine.gcloud_project
+      Google Cloud Platform project to use for this invocation.
+
+    gcloud_verbosity
+      User property: appengine.gcloud_verbosity
+      Override the default verbosity for this command. This must be a standard
+      logging verbosity level: [debug, info, warning, error, critical, none]
+      (Default: [warning]).
+
+    port
+      User property: appengine.port
+      The port number to bind to on the local machine.
+
+    server
+      User property: appengine.server
+      The server to use to determine the latest SDK version.
+
+appengine:gcloud_app_run_stop
+  Description: Stops the Gcloud App Engine development server.
+  Implementation: com.google.appengine.gcloudapp.GcloudAppStop
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    address
+      User property: appengine.address
+      The address of the interface on the local machine to bind to (or 0.0.0.0
+      for all interfaces).
+
+    appDir
+      User property: appengine.appDir
+      The location of the appengine application to run.
+
+    gcloud_app_admin_host
+      User property: appengine.gcloud_app_admin_host
+      host name to which the admin server should bind (default: localhost)
+
+    gcloud_app_admin_port
+      User property: appengine.gcloud_app_admin_port
+      port to which the admin server should bind (default: 8000)
+
+    gcloud_app_api_host
+      User property: appengine.gcloud_app_api_host
+      host to which the server for API calls should bind (default: locahost)
+
+    gcloud_app_docker_host
+      User property: appengine.gcloud_app_docker_host
+      docker_host
+
+    gcloud_app_enable_cloud_datastore
+      User property: appengine.gcloud_app_enable_cloud_datastore
+      enable_cloud_datastore
+
+    gcloud_app_host
+      User property: appengine.gcloud_app_host
+      host name to which application modules should bind (default: localhost)
+
+    gcloud_app_log_level
+      User property: appengine.gcloud_app_log_level
+      The minimum verbosity of logs from your app that will be displayed in the
+      terminal. (debug, info, warning, critical, error) Defaults to current
+      verbosity setting.
+
+    gcloud_app_port
+      User property: appengine.gcloud_app_port
+      lowest port to which application modules should bind (default: 8080)
+
+    gcloud_app_storage_path
+      User property: appengine.gcloud_app_storage_path
+      The path to the datastore, or blobstore to use for this application.
+
+    gcloud_directory
+      User property: appengine.gcloud_directory
+      gcloud installation directory
+
+    gcloud_modules
+      User property: appengine.gcloud_modules
+      Additional directories containing App Engine modules to be run.
+
+    gcloud_project
+      User property: appengine.gcloud_project
+      Google Cloud Platform project to use for this invocation.
+
+    gcloud_verbosity
+      User property: appengine.gcloud_verbosity
+      Override the default verbosity for this command. This must be a standard
+      logging verbosity level: [debug, info, warning, error, critical, none]
+      (Default: [warning]).
+
+    port
+      User property: appengine.port
+      The port number to bind to on the local machine.
+
+    server
+      User property: appengine.server
+      The server to use to determine the latest SDK version.
+
+appengine:rollback
+  Description: Rollback an in-progress update.
+  Implementation: com.google.appengine.appcfg.Rollback
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:set_default_version
+  Description: Set the default serving version.
+  Implementation: com.google.appengine.appcfg.SetDefaultVersion
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:start_module_version
+  Description: Start the specified module version.
+  Implementation: com.google.appengine.appcfg.StartModuleVersion
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:stop_module_version
+  Description: Stop the specified module version.
+  Implementation: com.google.appengine.appcfg.StopModuleVersion
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:update
+  Description: Create or update an app version.
+  Implementation: com.google.appengine.appcfg.Update
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:update_cron
+  Description: Update application cron jobs.
+  Implementation: com.google.appengine.appcfg.UpdateCron
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:update_dispatch
+  Description: Update application dispatch.xml.
+  Implementation: com.google.appengine.appcfg.UpdateDispatch
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:update_dos
+  Description: Update application DoS protection configuration.
+  Implementation: com.google.appengine.appcfg.UpdateDos
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:update_indexes
+  Description: Update application indexes.
+  Implementation: com.google.appengine.appcfg.UpdateIndexes
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:update_queues
+  Description: Update application task queue definitions.
+  Implementation: com.google.appengine.appcfg.UpdateQueues
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+appengine:vacuum_indexes
+  Description: Delete unused indexes from application.
+  Implementation: com.google.appengine.appcfg.VacuumIndexes
+  Language: java
+  Before this mojo executes, it will call:
+    Phase: 'package'
+
+  Available parameters:
+
+    append
+      User property: appengine.append
+      Append to existing file.
+
+    appId
+      User property: appengine.appId
+      Override application id from appengine-web.xml or app.yaml.
+
+    backendName
+      User property: appengine.backendName
+      The name of the backend to perform actions on.
+
+    compileEncoding
+      User property: appengine.compileEncoding
+      The character encoding to use when compiling JSPs.
+
+    deleteJsps
+      User property: appengine.deleteJsps
+      Delete the JSP source files after compilation.
+
+    email
+      User property: appengine.email
+      The username to use.
+
+    enableJarClasses
+      User property: appengine.enableJarClasses
+      Jar the WEB-INF/classes content.
+
+    enableJarSplitting
+      User property: appengine.enableJarSplitting
+      Split large jar files (> 10M) into smaller fragments.
+
+    force
+      User property: appengine.force
+      Force deletion of indexes without being prompted.
+
+    host
+      User property: appengine.host
+      Override for the Host header setn with all RPCs.
+
+    insecure
+      User property: appengine.insecure
+      Do not use HTTPS to communicate with the Admin Console.
+
+    instance
+      User property: appengine.instance
+      Instance id to for vm debug.
+
+    jarSplittingExcludes
+      User property: appengine.jarSplittingExcludes
+      When --enable-jar-splitting is set, files that match the list of comma
+      separated SUFFIXES will be excluded from all jars.
+
+    noCookies
+      User property: appengine.noCookies
+      Do not save/load access credentials to/from disk.
+
+    numDays
+      User property: appengine.numDays
+      Number of days worth of log data to get. The cut-off point is midnight
+      UTC. Use 0 to get all available logs. Default is 1.
+
+    numRuns
+      User property: appengine.numRuns
+      Number of scheduled execution times to compute.
+
+    oauth2 (Default: true)
+      User property: appengine.oauth2
+      Use OAuth2 instead of password auth. Defaults to true.
+
+    passin
+      User property: appengine.passin
+      Always read the login password from stdin.
+
+    proxyHost
+      User property: appengine.proxyHost
+      Proxies requests through the given proxy server. If --proxy_https is also
+      set, only HTTP will be proxied here, otherwise both HTTP and HTTPS will.
+
+    proxyHttps
+      User property: appengine.proxyHttps
+      Proxies HTTPS requests through the given proxy server.
+
+    retainUploadDir
+      User property: appengine.retainUploadDir
+      Do not delete temporary (staging) directory used in uploading.
+
+    server
+      User property: appengine.server
+      The server to connect to.
+
+    severity
+      User property: appengine.severity
+      Severity of app-level log messages to get. The range is 0 (DEBUG) through
+      4 (CRITICAL). If omitted, only request logs are returned.
+
+    version
+      User property: appengine.version
+      Override version from appengine-web.xml or app.yaml.
+
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.068 s
+[INFO] Finished at: 2014-10-02T15:04:15+08:00
+[INFO] Final Memory: 7M/18M
+[INFO] ------------------------------------------------------------------------
