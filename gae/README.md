@@ -2,10 +2,21 @@
 
 [java.lang.NoClassDefFoundError: org/hotswap/agent/config/PluginManager - GAE devserver · Issue #99 · HotswapProjects/HotswapAgent](https://github.com/HotswapProjects/HotswapAgent/issues/99)
 
-How to test?
+How to test multi-module app?
 
+```
 git clone https://github.com/HotswapProjects/HotswapAgentExamples
 cd HotswapAgentExamples/gae
 mvn
 cd ear
 mvn
+```
+
+How to test normal (single/default module) app?
+```
+git clone https://github.com/HotswapProjects/HotswapAgentExamples
+cd HotswapAgentExamples/gae
+mvn
+cd gae-default
+mvn
+```
