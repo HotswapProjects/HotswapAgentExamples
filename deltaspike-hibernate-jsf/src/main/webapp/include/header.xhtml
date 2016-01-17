@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+<ui:composition>
+  <title>#{messages['app.title']}#{not empty pageTitle ? ' - '.concat(pageTitle) : ''}</title>
+  <meta charset="utf-8" />
+  <h:outputStylesheet library="css" name="default.css" />
+
+  <p:ajaxStatus>
+
+    <f:facet name="default">
+    </f:facet>
+
+    <f:facet name="start">
+      <div class="ajax-layer"></div>
+      <div class="ajax-status">
+        <p:panel styleClass="ajax-status-container">
+          <i class="fa fa-spinner fa-spin"></i>
+          <h:outputText value="#{messages['common.working']}" />
+        </p:panel>
+      </div>
+    </f:facet>
+
+    <f:facet name="complete">
+    </f:facet>
+  </p:ajaxStatus>
+</ui:composition>
+
+</html>
