@@ -1,0 +1,15 @@
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 90%;
+}
+
+.login-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}

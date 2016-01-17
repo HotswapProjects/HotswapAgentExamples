@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+<h:head>
+    <ui:include src="/include/header.xhtml">
+        <ui:param name="pageTitle" value="#{messages['pageTitle.login']}" />
+    </ui:include>
+</h:head>
+
+<h:body>
+
+    <f:view transient="true">
+
+        <div class="login-panel">
+
+            <div style="max-width: 500px;">
+                <p:panel header="#{messages['app.title']}">
+                    <h:form id="fLogin">
+                        <p:growl />
+                        <h:panelGrid style="width:100%;">
+                            <p:outputLabel value="#{messages['login.userName']}" for="inpUserName" />
+                            <p:inputText id="inpUserName" value="#{loginForm.userName}" label="#{messages['login.userName']}" />
+
+                            <p:outputLabel value="#{messages['login.password']}" for="inpPassword" />
+                            <p:password id="inpPassword" value="#{loginForm.password}" label="#{messages['login.password']}" />
+
+                            <p:commandButton action="#{loginController.login()}"
+                                value="#{messages['login.login']}"
+                                ajax="false"
+                                styleClass="button-check" />
+                        </h:panelGrid>
+                    </h:form>
+                </p:panel>
+            </div>
+
+        </div>
+
+    </f:view>
+
+</h:body>
+</html>
