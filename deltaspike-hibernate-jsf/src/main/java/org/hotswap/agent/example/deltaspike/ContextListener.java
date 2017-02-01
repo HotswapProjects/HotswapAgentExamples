@@ -7,8 +7,8 @@ import javax.servlet.ServletContextListener;
 
 public class ContextListener implements ServletContextListener {
 
-    @Inject
-    private EntityManagerFactory emf;
+//    @Inject
+//    private EntityManagerFactory emf;
 
     @Override
     public void contextDestroyed(ServletContextEvent arg0) {
@@ -18,7 +18,7 @@ public class ContextListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent arg0) {
         // initialize entity manager factory on application statup
-        emf.createEntityManager();
+//        emf.createEntityManager();
     }
 
 }
