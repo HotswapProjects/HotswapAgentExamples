@@ -12,19 +12,8 @@ public interface Pages extends ViewConfig {
 
     class Login implements ViewConfig {}
 
-    @Secured(LoggedInDecisionVouter.class)
-    public interface Appl extends Pages {
-        class Home implements Appl {};
-
-        @Secured(AdminDecisionVoter.class)
-        class Users implements Appl {};
-    }
-
-    public interface Errorpages extends Pages {
-        class Error extends DefaultErrorView { }
-        class LowPriviliges implements Errorpages {}
-        class NotFound implements Errorpages {}
-        class ViewExpired implements Errorpages {}
-    }
+//    class Login1 implements ViewConfig {}
+//
+//    class Login2 implements ViewConfig {}
 
 }
