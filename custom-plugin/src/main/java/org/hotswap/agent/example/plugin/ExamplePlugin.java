@@ -30,7 +30,7 @@ import static org.hotswap.agent.annotation.LoadEvent.REDEFINE;
         testedVersions = "Describe dependent framework version you have tested the plugin with.",
         expectedVersions = "Describe dependent framework version you expect to work the plugin with.")
 public class ExamplePlugin {
-    public static final String PLUGIN_PACKAGE = "org.hotswap.agent.agentexamples";
+    public static final String PLUGIN_PACKAGE = "org.hotswap.agent.example";
 
     // as an example, we will enhance this service to return content of examplePlugin.resource
     // and class load/reload counts in agentexamples's helloWorld service method
@@ -119,7 +119,7 @@ public class ExamplePlugin {
     /**
      * Count how many classes were loaded after the plugin is initialized (after HELLO_WORLD_SERVICE constructor).
      */
-    @OnClassLoadEvent(classNameRegexp = "org.hotswap.agentexamples.*", events = DEFINE)
+    @OnClassLoadEvent(classNameRegexp = PLUGIN_PACKAGE +  ".*", events = DEFINE)
     public void loadClass() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         // you can use scheduler to run framework method asynchronously
         // there is convenient ReflectionCommand, which runs method in the target classloader, the reflection

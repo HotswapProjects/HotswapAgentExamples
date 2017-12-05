@@ -32,6 +32,11 @@ public class HelloWorldService {
         this.loadedClasses = loadedClasses;
     }
 
+    // reflection command currently supports only object types
+    public void setLoadedClasses(Integer loadedClasses) {
+        this.loadedClasses = loadedClasses;
+    }
+
     public void addReloadedClass(String className) {
         reloadedClasses.add(className);
     }
