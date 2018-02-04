@@ -176,11 +176,6 @@
         <profile>
             <id>OWB</id>
 
-            <!-- ensures a correct build at analysis.apache.org -->
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-
             <properties>
                 <owb.version>1.7.4</owb.version>
                 <cdicontainer.version>owb-${owb.version}</cdicontainer.version>
@@ -258,6 +253,11 @@
             <!-- use this profile to compile and test DeltaSpike with JBoss Weld 2.x on an embedded container -->
             <id>Weld2</id>
 
+            <!-- ensures a correct build at analysis.apache.org -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
             <properties>
                 <!-- Actual Weld version used with this profile -->
                 <weld.version>2.4.6.Final</weld.version>
@@ -270,7 +270,13 @@
                     <groupId>org.jboss.weld</groupId>
                     <artifactId>weld-api</artifactId>
                     <version>2.4.Final</version>
-                    <scope>test</scope>
+                    <scope>compile</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.jboss.weld.servlet</groupId>
+                    <artifactId>weld-servlet</artifactId>
+                    <version>2.4.6.Final</version>
                 </dependency>
 
             </dependencies>
