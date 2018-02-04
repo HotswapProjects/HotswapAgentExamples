@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ds="http://deltaspike.apache.org/jsf"
+      >
+<h:head>
+  <ui:include src="/include/header.xhtml">
+    <ui:param name="pageTitle" value="#{messages['pageTitle.beans']}" />
+  </ui:include>
+</h:head>
+
+<h:body>
+
+    <ui:include src="/include/menu.xhtml" />
+
+    <h:form id="fBeans">
+
+        <h:panelGrid columns="3">
+
+            <h:outputText value="applicationBean.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{applicationBean.hello()}"/>
+            <p:spacer/>
+
+            <h:outputText value="windowBean.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{windowBean.hello()}"/>
+            <p:spacer/>
+
+            <h:outputText value="groupedConvBean1.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{groupedConvBean1.hello()}"/>
+            <p:commandButton value="Close 'groupedConvBean1' conversation" action="#{groupedConvBean1.closeConversation()}" update="@form"/>
+
+            <h:outputText value="groupedConvBean2.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{groupedConvBean2.hello()}"/>
+            <p:commandButton value="Close 'groupedConvBean2+groupedConvBean3'  conversation" action="#{groupedConvBean2.closeConversation()}" update="@form"/>
+
+            <h:outputText value="groupedConvBean3.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{groupedConvBean3.hello()}"/>
+            <p:spacer/>
+
+            <p:commandButton value="Close all window conversations" action="#{groupedConvBean1.closeAllWindowConversations()}" update="@form"/>
+
+        </h:panelGrid>
+
+    </h:form>
+
+</h:body>
+</html>

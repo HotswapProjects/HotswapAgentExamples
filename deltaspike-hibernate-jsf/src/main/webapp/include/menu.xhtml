@@ -10,8 +10,6 @@
 
 <ui:composition>
 
-    <o:importConstants type="org.hotswap.agent.example.deltaspike.enums.UserRole" />
-
     <div class="container">
 
         <h:form id="fMenu">
@@ -19,21 +17,8 @@
             <p:menubar id="mainMenu">
 
                 <p:submenu label="#{messages['menu.home']}" icon="fa fa-home">
-                    <p:menuitem value="#{messages['menu.user.logout']}"
-                                action="#{loginController.logout()}"
-                                icon="fa fa-sign-out"
-                                />
-                </p:submenu>
-
-                <p:submenu label="#{messages['menu.administration']}"
-                           rendered="#{userBean.hasRole(UserRole.ADMIN)}"
-                           icon="fa fa-gears"
-                            >
-
-                    <p:menuitem value="#{messages['menu.users']}"
-                                outcome="/appl/users.xhtml"
-                                />
-
+                    <p:menuitem value="#{messages['menu.users']}" outcome="/appl/users.xhtml" />
+                    <p:menuitem value="#{messages['menu.beans']}" outcome="/appl/beans.xhtml" />
                 </p:submenu>
 
             </p:menubar>

@@ -1,4 +1,4 @@
-package org.hotswap.agent.example.deltaspike.appl;
+package org.hotswap.agent.example.deltaspike.forms;
 
 import javax.enterprise.inject.Model;
 
@@ -8,10 +8,10 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class LoginForm {
 
     @NotEmpty
-    private String userName;
+    private String userName = "admin";
 
     @NotEmpty
-    private String password;
+    private String password = "admin";
 
     public String getUserName() {
         return userName;
