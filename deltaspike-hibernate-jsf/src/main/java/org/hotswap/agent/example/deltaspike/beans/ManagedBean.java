@@ -29,6 +29,6 @@ public class ManagedBean implements Serializable {
 
     public String hello() {
         helloCount ++;
-        return "ManagedBean[beanId=" + idCount + ",helloCount=" + helloCount + "]:" + helloProducer1.hello();
+        return "ManagedBean[beanId=" + beanId + ",helloCount=" + helloCount + "]:" + helloProducer1.hello();
     }
 }
