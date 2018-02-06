@@ -42,6 +42,12 @@
             <p:spacer/>
 
             <p:commandButton value="Close all window conversations" action="#{groupedConvBean1.closeAllWindowConversations()}" update="@form"/>
+            <p:spacer/>
+            <p:spacer/>
+
+            <h:outputText value="managedBean.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{managedBean.hello()}"/>
+            <p:spacer/>
 
         </h:panelGrid>
 

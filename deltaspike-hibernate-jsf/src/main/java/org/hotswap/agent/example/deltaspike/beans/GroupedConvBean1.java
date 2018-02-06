@@ -22,15 +22,12 @@ public class GroupedConvBean1 implements Serializable {
     private HelloProducer1 helloProducer1;
 
     @Inject
+    private HelloProducer2 helloProducer2;
+
+    @Inject
     private GroupedConversationManager conversationManager;
 
     private int helloCount = 0;
-
-//    @Inject
-//    private HelloProducer2 helloProducer2;
-//
-//    @Inject
-//    private HelloProducer1 helloProducer3;
 
     public GroupedConvBean1() {
         conversationId = conversationCount;
@@ -39,7 +36,7 @@ public class GroupedConvBean1 implements Serializable {
 
     public String hello() {
         helloCount ++;
-        return "GroupedConvBean1[conversationId=" + conversationId + ",helloCount=" + helloCount + "]:" + helloProducer1.hello();
+        return "GroupedConvBean1[conversationId=" + conversationId + ",helloCount=" + helloCount + "]:" + helloProducer2.hello();
     }
 
     public void closeConversation() {
