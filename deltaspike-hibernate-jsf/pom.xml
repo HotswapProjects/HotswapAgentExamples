@@ -13,51 +13,12 @@
     <description>Deltaspike test</description>
 
     <properties>
-        <deltaspike.version>1.7.1</deltaspike.version>
-        <owb.version>1.7.0</owb.version>
+        <deltaspike.version>1.8.0</deltaspike.version>
+        <owb.version>1.7.4</owb.version>
+        <org.hibernateframework.version>5.2.10.Final</org.hibernateframework.version>
         <skip.integration.tests>true</skip.integration.tests>
         <skip.unit.tests>true</skip.unit.tests>
     </properties>
-
-    <repositories>
-
-        <repository>
-            <id>jboss-public-repository</id>
-            <name>JBoss Repository</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public</url>
-            <!-- These optional flags are designed to speed up your builds by reducing remote server calls -->
-            <releases>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </repository>
-
-        <repository>
-            <id>prime-repo</id>
-            <name>PrimeFaces Maven Repository</name>
-            <url>http://repository.primefaces.org</url>
-            <layout>default</layout>
-        </repository>
-
-    </repositories>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>jboss-public-repository</id>
-            <name>JBoss Repository</name>
-            <url>http://repository.jboss.org/nexus/content/groups/public</url>
-            <!-- These optional flags are designed to speed up your builds by reducing remote server calls -->
-            <releases>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <!-- Set to true to fix error in which Maven cannot find org.apache.maven.plugins:maven-archetype-plugin:maven-plugin:2.0-alpha-6-SNAPSHOT -->
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
 
     <dependencies>
 
@@ -70,105 +31,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.3.7.Final</version>
+            <version>${org.hibernateframework.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.3.2.Final</version>
-        </dependency>
-
-<!--
-        <dependency>
-            <groupId>org.jboss.weld.servlet</groupId>
-            <artifactId>weld-servlet</artifactId>
-            <version>2.2.6.Final</version>
-        </dependency>
- -->
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-interceptor_1.2_spec</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <!-- JSR 299 API -->
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jcdi_1.1_spec</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <!-- JSR 330 API -->
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-atinject_1.0_spec</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <!-- JSR-250 API -->
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-annotation_1.2_spec</artifactId>
-            <version>1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-impl</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-web</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-resource</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-jsf</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-el22</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-spi</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.openwebbeans</groupId>
-            <artifactId>openwebbeans-tomcat7</artifactId>
-            <version>${owb.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.deltaspike.cdictrl</groupId>
-            <artifactId>deltaspike-cdictrl-api</artifactId>
-            <version>${deltaspike.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.deltaspike.cdictrl</groupId>
-            <artifactId>deltaspike-cdictrl-owb</artifactId>
-            <version>${deltaspike.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jboss</groupId>
-            <artifactId>jandex</artifactId>
-            <version>2.0.3.Final</version>
+            <version>5.2.5.Final</version>
         </dependency>
 
         <dependency>
@@ -180,25 +49,25 @@
         <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-api</artifactId>
-            <version>2.2.10</version>
+            <version>2.2.12</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-impl</artifactId>
-            <version>2.2.10</version>
+            <version>2.2.12</version>
         </dependency>
 
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>6.0</version>
+            <version>6.1</version>
         </dependency>
 
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
             <artifactId>primefaces-extensions</artifactId>
-            <version>6.0.0</version>
+            <version>6.1.1</version>
         </dependency>
 
         <dependency>
@@ -210,7 +79,7 @@
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
-            <version>2.4</version>
+            <version>2.6.8</version>
         </dependency>
 
         <dependency>
@@ -303,6 +172,120 @@
 
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>OWB</id>
+
+            <properties>
+                <owb.version>1.7.4</owb.version>
+                <cdicontainer.version>owb-${owb.version}</cdicontainer.version>
+            </properties>
+
+            <dependencies>
+
+                <!-- OWB dependency -->
+                <dependency>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-interceptor_1.2_spec</artifactId>
+                    <version>1.0</version>
+                </dependency>
+
+                <!-- JSR 299 API -->
+                <dependency>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-jcdi_1.1_spec</artifactId>
+                    <version>1.0</version>
+                </dependency>
+
+                <!-- JSR 330 API -->
+                <dependency>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-atinject_1.0_spec</artifactId>
+                    <version>1.0</version>
+                </dependency>
+
+                <!-- JSR-250 API -->
+                <dependency>
+                    <groupId>org.apache.geronimo.specs</groupId>
+                    <artifactId>geronimo-annotation_1.2_spec</artifactId>
+                    <version>1.0</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.openwebbeans</groupId>
+                    <artifactId>openwebbeans-impl</artifactId>
+                    <version>${owb.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.openwebbeans</groupId>
+                    <artifactId>openwebbeans-web</artifactId>
+                    <version>${owb.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.openwebbeans</groupId>
+                    <artifactId>openwebbeans-jsf</artifactId>
+                    <version>${owb.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.openwebbeans</groupId>
+                    <artifactId>openwebbeans-el22</artifactId>
+                    <version>${owb.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.apache.openwebbeans</groupId>
+                    <artifactId>openwebbeans-tomcat7</artifactId>
+                    <version>${owb.version}</version>
+                    <scope>compile</scope>
+                </dependency>
+
+            </dependencies>
+
+        </profile>
+
+        <profile>
+            <!-- use this profile to compile and test DeltaSpike with JBoss Weld 2.x on an embedded container -->
+            <id>Weld2</id>
+
+            <!-- ensures a correct build at analysis.apache.org -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <properties>
+                <!-- Actual Weld version used with this profile -->
+                <weld.version>2.4.6.Final</weld.version>
+                <cdicontainer.version>weld-${weld.version}</cdicontainer.version>
+            </properties>
+
+            <dependencies>
+
+                <dependency>
+                    <groupId>org.jboss.weld</groupId>
+                    <artifactId>weld-api</artifactId>
+                    <version>2.4.Final</version>
+                    <scope>compile</scope>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.jboss.weld.servlet</groupId>
+                    <artifactId>weld-servlet</artifactId>
+                    <version>2.4.6.Final</version>
+                </dependency>
+
+            </dependencies>
+
+        </profile>
+
+    </profiles>
+
+
     <build>
         <resources>
             <resource>
@@ -327,7 +310,7 @@
 
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
+                <artifactId>tomcat8-maven-plugin</artifactId>
                 <version>2.0</version>
                 <configuration>
                     <port>9091</port>
@@ -346,7 +329,6 @@
                     </dependency>
                 </dependencies>
             </plugin>
-
 
         </plugins>
     </build>

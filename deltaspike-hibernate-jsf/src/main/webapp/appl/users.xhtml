@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      >
+<h:head>
+  <ui:include src="/include/header.xhtml">
+    <ui:param name="pageTitle" value="#{messages['pageTitle.users']}" />
+  </ui:include>
+</h:head>
+
+<h:body>
+
+    <o:importConstants type="org.hotswap.agent.example.deltaspike.enums.UserRole"/>
+
+    <ui:include src="/include/menu.xhtml" />
+
+    <h:form id="fUser">
+
+        <h3>
+            <h:outputText value="#{messages['users']}" rendered="#{userController.detailLevel == 1}"/>
+        </h3>
+
+        <p:commandLink action="#{userController.setDetailLevel(1)}"
+                       update="@form"
+                       process="@this"
+                       styleClass="commandLink"
+                       rendered="#{userController.detailLevel == 2}"
+                       >
+            <i class="fa fa-arrow-circle-o-left" style="padding-right:5px;"/>
+            <h:outputText value="#{messages['users.backToList']}" />
+            <p:resetInput target="pUser" />
+        </p:commandLink>
+
+        <p:growl sticky="true"/>
+
+        <pe:masterDetail level="#{userController.detailLevel}" showBreadcrumb="false">
+
+            <pe:masterDetailLevel level="1" levelLabel="#{messages['users.users']}">
+
+                <p:commandLink action="#{userController.selectNewDetail()}" update="@form" styleClass="commandLink">
+                    <h:outputText value="" styleClass="ui-icon ui-icon-plus" style="display: inline-block" />
+                    <h:outputText value="#{messages['users.new']}" />
+                    <pe:selectDetailLevel level="2" />
+                </p:commandLink>
+
+                <p:dataTable value="#{userController.getUserList()}"
+                             var="_user"
+                             selectionMode="single"
+                             selection="#{userController.selection}"
+                             rowKey="#{_user.userId}"
+                             paginator="true"
+                             rows="40"
+                             paginatorPosition="bottom"
+                             resizableColumns="true"
+                             style="margin-top: 15px;">
+
+                    <p:ajax event="rowSelect" listener="#{userController.onSelectDetailEvent}" update="@form" />
+
+                    <!--  user ID -->
+                    <p:column headerText="#{messages['users.userId']}" width="100" sortBy="#{_user.userId}">
+                        <h:outputText value="#{_user.userId}" />
+                    </p:column>
+
+                    <!-- User Name -->
+                    <p:column headerText="#{messages['users.userName']}"
+                                        sortBy="#{_user.userName}"
+                                        filterBy="#{_user.userName}"
+                                        filterMatchMode="contains"
+                                        width="200"
+                                        >
+                        <h:outputText value="#{_user.userName}" />
+                    </p:column>
+
+                    <!-- Role -->
+                    <p:column headerText="#{messages['users.role']}"
+                                        sortBy="#{_user.role}"
+                                        filterBy="#{_user.role}"
+                                        filterMatchMode="contains"
+                                        width="200"
+                                        >
+                        <h:outputText value="#{_user.role}" />
+                    </p:column>
+
+                    <!-- First name -->
+                    <p:column headerText="#{messages['users.firstName']}"
+                                        sortBy="#{_user.firstName}"
+                                        filterBy="#{_user.firstName}"
+                                        filterMatchMode="contains"
+                                        >
+                        <h:outputText value="#{_user.firstName}" />
+                    </p:column>
+
+                    <!-- Last name -->
+                    <p:column headerText="#{messages['users.lastName']}"
+                                        sortBy="#{_user.lastName}"
+                                        filterBy="#{_user.lastName}"
+                                        filterMatchMode="contains"
+                                        >
+                        <h:outputText value="#{_user.lastName}" />
+                    </p:column>
+
+                    <!-- Delete / edit -->
+                    <p:column width="40">
+                        <p:commandButton action="#{userController.deleteUser(_user)}"
+                                        icon="fa fa-trash"
+                                        update="@form"
+                                        process="@this"
+                                        >
+                            <p:confirm message="#{messages['users.areYouSureToDelete']}" icon="ui-icon-alert" />
+                        </p:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+            </pe:masterDetailLevel>
+
+            <pe:masterDetailLevel level="2" levelLabel="#{messages['users.new']}">
+
+                <p:panel id="pUser">
+
+                    <f:facet name="header">
+                        <p:row>
+                            <p:column colspan="4">
+                                <h:outputText value="#{messages['users.userDetail']} : #{userForm.userName}" style="float: left;"/>
+                            </p:column>
+                        </p:row>
+                    </f:facet>
+
+                    <h:panelGrid columns="2">
+
+                        <p:outputLabel value="System ID" rendered="#{!userForm.isNew()}"/>
+                        <h:outputText value="#{userForm.userId}" rendered="#{!userForm.isNew()}"/>
+
+                        <!-- User name -->
+                        <p:outputLabel value="#{messages['users.userName']}" for="@next" />
+                        <p:inputText value="#{userForm.userName}"
+                                     required="true"
+                                     requiredMessage="#{messages['input.required']}"
+                                     label="#{messages['users.userName']}"
+                                     />
+
+                        <!-- First name -->
+                        <p:outputLabel value="#{messages['users.firstName']}" for="@next"/>
+                        <p:inputText value="#{userForm.firstName}"
+                                     required="true"
+                                     requiredMessage="#{messages['input.required']}"
+                                     label="#{messages['users.firstName']}"
+                                     />
+
+                        <!-- Last name -->
+                        <p:outputLabel value="#{messages['users.lastName']}" for="@next"/>
+                        <p:inputText value="#{userForm.lastName}"
+                                     required="true"
+                                     requiredMessage="#{messages['input.required']}"
+                                     label="#{messages['users.lastName']}"
+                                     />
+
+                        <!-- Email -->
+                        <p:outputLabel value="#{messages['users.email']}" for="@next"/>
+                        <p:inputText value="#{userForm.email}"
+                                     label="#{messages['users.email']}"
+                                     />
+
+                        <!-- User role -->
+                        <p:outputLabel value="#{messages['users.role']}" for="@next"/>
+                        <p:selectOneMenu     value="#{userForm.role}">
+                            <f:selectItems value="#{UserRole.values()}"
+                                          var="_role"
+                                          itemLabel="#{messages[_role.rbKey]}"
+                                          itemValue="#{_role}" />
+                        </p:selectOneMenu    >
+
+                    </h:panelGrid>
+
+                    <h:panelGrid columns="3" style="button-panel">
+                        <p:commandButton value="#{messages['common.save']}"
+                                        action="#{userController.saveUser()}"
+                                        update="@form"
+                                        icon="fa fa-save"
+                                        />
+                        <p:commandButton value="#{messages['common.delete']}"
+                                        action="#{userController.deleteUser()}"
+                                        rendered="#{!userForm.isNew()}"
+                                        process="@this"
+                                        update="@form"
+                                        icon="fa fa-trash"
+                                        >
+                            <p:confirm message="#{messages['users.areYouSureToDelete']}" icon="ui-icon-alert" />
+                            <pe:selectDetailLevel level="1" />
+                        </p:commandButton>
+                    </h:panelGrid>
+
+                </p:panel>
+
+            </pe:masterDetailLevel>
+        </pe:masterDetail>
+    </h:form>
+
+</h:body>
+</html>
