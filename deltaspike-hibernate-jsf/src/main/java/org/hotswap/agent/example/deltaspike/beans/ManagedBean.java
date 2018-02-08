@@ -17,8 +17,11 @@ public class ManagedBean implements Serializable {
     @Inject
     private HelloProducer1 helloProducer1;
 
-//    @Inject
-//    private HelloProducer2 helloProducer2;
+    @Inject
+    private HelloProducer2 helloProducer2;
+
+    @Inject
+    private HelloProducer2 helloProducer3;
 
     private int helloCount = 0;
 
@@ -29,6 +32,6 @@ public class ManagedBean implements Serializable {
 
     public String hello() {
         helloCount ++;
-        return "ManagedBean[beanId=" + beanId + ",helloCount=" + helloCount + "]:" + helloProducer1.hello();
+        return "ManagedBean[beanId=" + beanId + ",helloCount=" + helloCount + "]:" + helloProducer3.hello();
     }
 }
