@@ -20,6 +20,14 @@
         <skip.unit.tests>true</skip.unit.tests>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>primefaces-maven-repository</id>
+            <name>PrimeFaces Maven Repository</name>
+            <url>http://repository.primefaces.org</url>
+        </repository>
+    </repositories>
+
     <dependencies>
 
         <dependency>
