@@ -49,11 +49,15 @@
 
             <h:outputText value="managedBean.hello:"  style="font-style:italic"/>
             <h:outputText value="#{managedBean.hello()}"/>
-            <p:spacer/>
+            <p:commandButton value="Update" action="#{managedBean.hello()}" update="@form"/>
 
             <h:outputText value="omniViewBean.hello:"  style="font-style:italic"/>
             <h:outputText value="#{omniViewBean.hello()}"/>
             <p:commandButton value="Update" action="#{omniViewBean.hello()}" update="@form"/>
+
+            <h:outputText value="jsfViewBean.hello:"  style="font-style:italic"/>
+            <h:outputText value="#{jsfViewBean.hello()}"/>
+            <p:commandButton value="Update" action="#{jsfViewBean.hello()}" update="@form"/>
 
         </h:panelGrid>
 
