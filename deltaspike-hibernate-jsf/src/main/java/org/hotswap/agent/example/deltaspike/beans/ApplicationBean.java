@@ -22,7 +22,7 @@ public class ApplicationBean implements Serializable {
 
     public String hello() {
         helloCount ++;
-        return "WindowBean[helloCount=" + helloCount + "]:" + helloProducer1.hello();
+        return "ApplicationBean[helloCount=" + helloCount + "]:" + helloProducer1.hello();
     }
 
 }
