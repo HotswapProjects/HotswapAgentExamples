@@ -1,5 +1,5 @@
 package org.hotswap.agent.example.springboot;
 
-public class Test {
+public class TestPojo {
     public int version() { return 0; }
 }
