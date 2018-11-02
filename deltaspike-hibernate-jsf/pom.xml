@@ -309,10 +309,6 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <showDeprecation>true</showDeprecation>
-                    <showWarnings>true</showWarnings>
-                    <executable>${env.JAVA_HOME_8}/bin/javac</executable>
-                    <fork>true</fork>
                 </configuration>
             </plugin>
 
