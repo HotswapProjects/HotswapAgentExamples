@@ -3,8 +3,14 @@
     <display-name>JAX-RS Simple Service</display-name>
     <description>JAX-RS Simple Service</description>
 
+    <!--
     <listener>
             <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
+    </listener>
+     -->
+
+    <listener>
+        <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
     </listener>
 
     <servlet>
