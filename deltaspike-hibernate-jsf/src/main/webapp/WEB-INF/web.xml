@@ -14,16 +14,16 @@
   </servlet-mapping>
 
   <!-- OWB -->
-<!--
   <listener>
     <listener-class>org.apache.webbeans.servlet.WebBeansConfigurationListener</listener-class>
   </listener>
--->
 
   <!-- WELD -->
+<!--
   <listener>
     <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
   </listener>
+-->
 
   <resource-env-ref>
     <resource-env-ref-name>BeanManager</resource-env-ref-name>

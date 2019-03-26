@@ -13,8 +13,8 @@
     <description>Deltaspike test</description>
 
     <properties>
-        <deltaspike.version>1.8.0</deltaspike.version>
-        <owb.version>1.7.4</owb.version>
+        <deltaspike.version>1.9.0</deltaspike.version>
+        <owb.version>2.0.10</owb.version>
         <org.hibernateframework.version>5.2.10.Final</org.hibernateframework.version>
         <skip.integration.tests>true</skip.integration.tests>
         <skip.unit.tests>true</skip.unit.tests>
@@ -57,25 +57,25 @@
         <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-api</artifactId>
-            <version>2.2.12</version>
+            <version>2.3.3</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-impl</artifactId>
-            <version>2.2.12</version>
+            <version>2.3.3</version>
         </dependency>
 
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>6.1</version>
+            <version>7.0</version>
         </dependency>
 
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
             <artifactId>primefaces-extensions</artifactId>
-            <version>6.1.1</version>
+            <version>7.0</version>
         </dependency>
 
         <dependency>
@@ -87,14 +87,14 @@
         <dependency>
             <groupId>org.omnifaces</groupId>
             <artifactId>omnifaces</artifactId>
-            <version>2.6.8</version>
+            <version>3.2</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
+				<dependency>
+				    <groupId>javax.validation</groupId>
+				    <artifactId>validation-api</artifactId>
+				    <version>2.0.1.Final</version>
+				</dependency>
 
         <dependency>
             <groupId>org.apache.deltaspike.core</groupId>
@@ -185,9 +185,14 @@
             <id>OWB</id>
 
             <properties>
-                <owb.version>1.7.4</owb.version>
+                <owb.version>2.0.10</owb.version>
                 <cdicontainer.version>owb-${owb.version}</cdicontainer.version>
             </properties>
+
+            <!-- ensures a correct build at analysis.apache.org -->
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
 
             <dependencies>
 
@@ -201,7 +206,7 @@
                 <!-- JSR 299 API -->
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
-                    <artifactId>geronimo-jcdi_1.1_spec</artifactId>
+                    <artifactId>geronimo-jcdi_2.0_spec</artifactId>
                     <version>1.0</version>
                 </dependency>
 
@@ -215,7 +220,7 @@
                 <!-- JSR-250 API -->
                 <dependency>
                     <groupId>org.apache.geronimo.specs</groupId>
-                    <artifactId>geronimo-annotation_1.2_spec</artifactId>
+                    <artifactId>geronimo-annotation_1.3_spec</artifactId>
                     <version>1.0</version>
                 </dependency>
 
@@ -260,11 +265,6 @@
         <profile>
             <!-- use this profile to compile and test DeltaSpike with JBoss Weld 2.x on an embedded container -->
             <id>Weld2</id>
-
-            <!-- ensures a correct build at analysis.apache.org -->
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
 
             <properties>
                 <!-- Actual Weld version used with this profile -->
