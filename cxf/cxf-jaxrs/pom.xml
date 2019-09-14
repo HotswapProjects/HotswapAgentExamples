@@ -11,6 +11,14 @@
         <jackson.version>1.8.6</jackson.version>
     </properties>
 
+    <repositories>
+       <repository>
+            <id>spring-repo</id>
+            <name>Spring Repository</name>
+            <url>https://repo.spring.io/plugins-release/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>org.apache.cxf</groupId>
@@ -142,8 +150,12 @@
                     <artifactId>weld-servlet</artifactId>
                     <version>2.3.0.Final</version>
                 </dependency>
+                <dependency>
+                    <groupId>jboss</groupId>
+                    <artifactId>jboss-ejb-api</artifactId>
+                    <version>4.2.1.GA</version>
+                </dependency>
             </dependencies>
-
         </profile>
 
     </profiles>
