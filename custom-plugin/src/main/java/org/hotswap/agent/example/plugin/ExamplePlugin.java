@@ -41,12 +41,12 @@ public class ExamplePlugin {
     private static AgentLogger LOGGER = AgentLogger.getLogger(ExamplePlugin.class);
 
     /**
-     * Any plugin has to have at least one static @Transform method to hook initialization code. It is usually
+     * Any plugin has to have at least one static @OnClassLoadEvent method to hook initialization code. It is usually
      * some key framework method. Call PluginManager.initializePlugin() to create new plugin instance and
      * initialize agentexamples with the application classloader. Than call one or more methods on the plugin
      * to pass reference to framework/application objects.
      *
-     * @param ctClass see @Transform javadoc for available parameter types. CtClass is convenient way
+     * @param ctClass see @OnClassLoadEvent javadoc for available parameter types. CtClass is convenient way
      *                to enhance method bytecode using javaasist
      */
     @OnClassLoadEvent(classNameRegexp = HELLO_WORLD_SERVICE)
@@ -54,7 +54,7 @@ public class ExamplePlugin {
 
         // You need always find a place from which to initialize the plugin.
         // Initialization will create new plugin instance (notice that transformTestEntityService is
-        // a static method), inject agent services (@Inject) and register event listeners (@Transform and @Watch).
+        // a static method), inject agent services (@Inject) and register event listeners (@OnClassLoadEvent and @OnResourceFileEvent).
         String src = PluginManagerInvoker.buildInitializePlugin(ExamplePlugin.class);
 
         // If you need to call a plugin method from application context, there are some issues
@@ -100,7 +100,7 @@ public class ExamplePlugin {
 
 
     /**
-     * Use @Watch annotation to register resource event listener (using file NIO events). See @Watch javadoc
+     * Use @OnResourceFileEvent annotation to register resource event listener (using file NIO events). See @OnResourceFileEvent javadoc
      * for available method parameter types.
      */
     @OnResourceFileEvent(path = "examplePlugin.resource")
