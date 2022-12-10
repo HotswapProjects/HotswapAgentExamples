@@ -16,7 +16,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <org.springframework.version>5.2.21.RELEASE</org.springframework.version>
+        <org.springframework.version>6.0.0</org.springframework.version>
         <org.hibernateframework.version>4.2.0.Final</org.hibernateframework.version>
         <skip.integration.tests>true</skip.integration.tests>
         <skip.unit.tests>false</skip.unit.tests>
