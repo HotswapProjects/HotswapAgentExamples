@@ -304,7 +304,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.hotswap.agent</groupId>
+            <groupId>org.hotswapagent</groupId>
             <artifactId>hotswap-agent</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>

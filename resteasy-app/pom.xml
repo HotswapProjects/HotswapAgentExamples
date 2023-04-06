@@ -5,7 +5,7 @@
 
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.hotswap.agent</groupId>
+  <groupId>org.hotswapagent</groupId>
   <artifactId>resteasy-parent</artifactId>
   <version>0.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
