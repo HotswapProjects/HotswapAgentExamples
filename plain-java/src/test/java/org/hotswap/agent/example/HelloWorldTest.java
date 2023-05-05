@@ -56,6 +56,7 @@ public class HelloWorldTest {
         Path source = Paths.get("target/watch/testWatchReplace.properties");
         Path target = Paths.get("target/watch/testWatch.properties");
         Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING);
+        Thread.sleep(2000);
 
         // wait for the hotswap
         boolean result = WaitHelper.waitForCommand(new WaitHelper.Command() {
