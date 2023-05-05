@@ -33,7 +33,7 @@ public class HelloWorldHotswapTest {
         copyClassFile(HelloWorldHotswap.class.getName(), false);
         copyClassFile(HelloWorldHotswap.class.getName() + "$1", false); // anonymous Cloneable class in dummy() method
         copyClassFile(HelloWorldHotswap.class.getName() + "$2", false); // anonymous HelloInterface class in hello(String) method
-//        Thread.sleep();
+        Thread.sleep(2000);
 
         // wait for the hotswap
         WaitHelper.waitForCommand(new WaitHelper.Command() {

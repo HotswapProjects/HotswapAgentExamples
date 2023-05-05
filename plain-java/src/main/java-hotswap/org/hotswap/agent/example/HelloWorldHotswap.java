@@ -8,7 +8,7 @@ import java.lang.Cloneable;
 @HelloAnnotation("hello hotswap")
 public class HelloWorldHotswap {
     public static String hello() {
-        return "Hello World Hotswap";
+        return helloPrivate();
     }
 
     @HelloAnnotation("hello hotswap")
@@ -26,6 +26,10 @@ public class HelloWorldHotswap {
     // chage ordering of annonymous classes. HotswapperPlugin should kick in.
     public void dummy() {
         new Cloneable() {};
+    }
+
+    private static String helloPrivate() {
+        return "Hello World Hotswap";
     }
 
 }

@@ -9,19 +9,28 @@ function test {
     echo "Running with Java $1"
     export JAVA_HOME=$1
 
-    echo "Resolved version: " `"$JAVA_HOME/bin/java" -XXaltjvm=dcevm -version` || echo "$1 is not a valid Java installation with DCEVM."
+    echo "Resolved version: " `"$JAVA_HOME/bin/java" -version`
 
-    mvn clean install
+    mvn -Dhotswapagent.jar=$2 clean package
 
-    # run tests for different versions
+    # run tests
     cd plain-java; ./run-tests.sh; cd ..
-    cd plain-servlet; ./run-tests.sh; cd ..
 
     # TODO
     # custom-plugin
+    # cd plain-servlet; ./run-tests.sh; cd ..
     # spring-hibernate
     # ...
 }
 
-test "c:\Program Files\Java\jdk1.7.0_45"
-test "c:\Program Files\Java\jdk1.8.0_05"
+if [ -z "$JAVA_HOME" ]; then
+    echo "JAVA_HOME is not set"
+    exit 1
+fi
+
+if [ -z "$HOT_SWAP_AGENT"]; then
+  echo "HOT_SWAP_AGENT is not set, pls. specify where the HotSwapAgent jar location"
+  exit 1
+fi
+
+test $JAVA_HOME $HOT_SWAP_AGENT
