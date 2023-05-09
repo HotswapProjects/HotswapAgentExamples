@@ -42,7 +42,7 @@ public class HelloWorldServletHotswapIT {
 
                 return "Hello World Hotswap".equals(result);
             }
-        });
+        }, 2000);
 
         // check that agentexamples works
         Assert.assertTrue("Assert hotswapped class in extra is used.", result);
