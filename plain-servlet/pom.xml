@@ -33,48 +33,7 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>jetty4</id>
-            <properties>
-                <cargo.skip>false</cargo.skip>
-                <cargo.container>jetty4x</cargo.container>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>jetty5</id>
-            <properties>
-                <cargo.skip>false</cargo.skip>
-                <cargo.container>jetty5x</cargo.container>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>jetty6</id>
-            <properties>
-                <cargo.skip>false</cargo.skip>
-                <cargo.container>jetty6x</cargo.container>
-            </properties>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+
         <profile>
             <id>jetty7</id>
             <properties>
@@ -84,11 +43,13 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>jetty8</id>
             <properties>
@@ -98,11 +59,13 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>jetty9</id>
             <properties>
@@ -112,30 +75,19 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>jetty9-run</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.eclipse.jetty</groupId>
-                        <artifactId>jetty-maven-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+
         <profile>
             <id>tomcat6</id>
-
             <properties>
                 <cargo.skip>false</cargo.skip>
                 <cargo.container>tomcat6x</cargo.container>
             </properties>
-
             <build>
                 <plugins>
                     <plugin>
@@ -145,14 +97,13 @@
                 </plugins>
             </build>
         </profile>
+
         <profile>
             <id>tomcat7</id>
-
             <properties>
                 <cargo.skip>false</cargo.skip>
                 <cargo.container>tomcat7x</cargo.container>
             </properties>
-
             <build>
                 <plugins>
                     <plugin>
@@ -162,31 +113,13 @@
                 </plugins>
             </build>
         </profile>
-        <profile>
-            <id>tomcat9</id>
 
-            <properties>
-                <cargo.skip>false</cargo.skip>
-                <cargo.container>tomcat9x</cargo.container>
-            </properties>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-failsafe-plugin</artifactId>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
         <profile>
             <id>tomcat8</id>
-
             <properties>
                 <cargo.skip>false</cargo.skip>
                 <cargo.container>tomcat8x</cargo.container>
             </properties>
-
             <build>
                 <plugins>
                     <plugin>
@@ -196,6 +129,23 @@
                 </plugins>
             </build>
         </profile>
+
+        <profile>
+            <id>tomcat9</id>
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>tomcat9x</cargo.container>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <profile>
             <id>jboss5x</id>
 
@@ -272,6 +222,7 @@
         </resources>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
                 <executions>
