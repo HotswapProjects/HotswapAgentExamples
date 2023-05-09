@@ -69,7 +69,7 @@ public class HelloWorldServletIT {
                 System.err.println(hello);
                 return "Hello World Watch".equals(hello);
             }
-        });
+        }, 4000);
 
         // check that agentexamples works
         Assert.assertTrue("Assert modified target/watch/testWatch.properties is used.", result);

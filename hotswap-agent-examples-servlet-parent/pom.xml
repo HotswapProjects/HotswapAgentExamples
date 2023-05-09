@@ -210,11 +210,34 @@
     </profiles>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>3.0.0</version>
+                    <configuration>
+                        <includes>
+                            <include>**/*IT</include>
+                        </includes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>integration-test</goal>
+                                <goal>verify</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.codehaus.cargo</groupId>
-                <artifactId>cargo-maven2-plugin</artifactId>
-                <version>1.4.8</version>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <version>1.10.6</version>
                 <configuration>
                     <skip>${cargo.skip}</skip>
                     <container>
@@ -235,7 +258,7 @@
                     </deployables>
                     <configuration>
                         <properties>
-                            <cargo.jvmargs>-XXaltjvm=${dcevm} -javaagent:${org.hotswap.agent:hotswap-agent:jar}=autoHotswap=true</cargo.jvmargs>
+                            <cargo.jvmargs>${hotswap.argline}=autoHotswap=true</cargo.jvmargs>
                             <cargo.servlet.port>${server.port}</cargo.servlet.port>
                         </properties>
                     </configuration>

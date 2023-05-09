@@ -139,6 +139,7 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                     </plugin>
                 </plugins>
@@ -155,6 +156,24 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>tomcat9</id>
+
+            <properties>
+                <cargo.skip>false</cargo.skip>
+                <cargo.container>tomcat9x</cargo.container>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                     </plugin>
                 </plugins>
@@ -171,6 +190,7 @@
             <build>
                 <plugins>
                     <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-failsafe-plugin</artifactId>
                     </plugin>
                 </plugins>
@@ -398,5 +418,5 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-    
+
 </project>
