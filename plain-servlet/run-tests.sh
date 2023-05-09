@@ -18,9 +18,6 @@ fi
 
 # Older versions of Jetty works as well, but are configured only with embedded configuration, which does not support jvmargs
 #  it cannot be launched automatically (set -javaagent). To launch the test, set MAVEN_OPTS and run manually.
-# test jetty4
-# test jetty5
-test jetty6 ${HOT_SWAP_AGENT}
 test jetty7 ${HOT_SWAP_AGENT}
 test jetty8 ${HOT_SWAP_AGENT}
 test jetty9 ${HOT_SWAP_AGENT}
