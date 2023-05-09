@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>hotswap-agent-examples-aggregator</artifactId>
+		<groupId>org.hotswapagent</groupId>
+		<version>1.4.2-SNAPSHOT</version>
+	</parent>
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.hotswapagent.example</groupId>
@@ -11,28 +17,29 @@
 	<name>spring-boot</name>
 	<description>Example project for Spring Boot</description>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.1.RELEASE</version>
-	</parent>
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<spring.boot.version>2.7.11</spring.boot.version>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hotswapagent</groupId>
-			<artifactId>hotswap-agent-spring-plugin</artifactId>
-			<version>1.2.1-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -45,15 +52,22 @@
 			<artifactId>spring-boot-starter-webflux</artifactId>
 		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.boot</groupId>-->
-			<!--<artifactId>spring-boot-starter-web-services</artifactId>-->
-		<!--</dependency>-->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hotswapagent</groupId>
+			<artifactId>hotswap-agent-spring-plugin</artifactId>
+			<version>1.4.2-SNAPSHOT</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
 		</dependency>
 	</dependencies>
 
@@ -62,6 +76,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
 			</plugin>
 		</plugins>
 

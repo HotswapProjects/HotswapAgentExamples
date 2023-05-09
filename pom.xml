@@ -17,6 +17,7 @@
         <module>plain-java</module>
         <module>plain-servlet</module>
         <module>custom-plugin</module>
+        <module>spring-boot</module>
         <module>spring-hibernate</module>
     </modules>
 

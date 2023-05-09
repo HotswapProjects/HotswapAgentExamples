@@ -15,6 +15,7 @@ function test {
 
     # run tests
     cd plain-java; ./run-tests.sh; cd ..
+    cd spring-boot; ./run-tests.sh; cd ..
 
     # TODO
     # custom-plugin
