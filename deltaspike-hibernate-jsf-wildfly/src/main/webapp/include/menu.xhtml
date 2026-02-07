@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="jakarta.faces.core"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:composition>
+
+    <div class="container">
+
+        <h:form id="fMenu">
+
+            <p:menubar id="mainMenu">
+
+                <p:submenu label="#{messages['menu.home']}" icon="fa fa-home">
+                    <p:menuitem value="#{messages['menu.users']}" outcome="/appl/users.xhtml" />
+                    <p:menuitem value="#{messages['menu.beans']}" outcome="/appl/beans.xhtml" />
+                </p:submenu>
+
+            </p:menubar>
+        </h:form>
+    </div>
+
+    <p:confirmDialog global="true" severity="alert">
+        <h:form>
+            <p:commandButton value="#{messages['common.yes']}" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+            <p:commandButton value="#{messages['common.no']}" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+        </h:form>
+    </p:confirmDialog>
+
+</ui:composition>
+
+</html>
